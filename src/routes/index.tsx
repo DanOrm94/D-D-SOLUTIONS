@@ -117,7 +117,7 @@ const STEPS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Before D&D built our site, we were invisible online. Now we get 3–4 new enquiries every week directly through the website. Worth every penny.",
+      "Before DD built our site, we were invisible online. Now we get 3–4 new enquiries every week directly through the website. Worth every penny.",
     author: 'Marge Tolliver',
     business: "Tolliver's Bakehouse",
     initials: 'MT',
@@ -157,7 +157,7 @@ const WHY_ITEMS = [
   {
     stat: '5-star',
     label: 'Client satisfaction',
-    detail: 'Every client who has launched with us would recommend D&D to another local business owner.',
+    detail: 'Every client who has launched with us would recommend DD to another local business owner.',
   },
 ]
 
@@ -285,10 +285,10 @@ export default function HomePage() {
                 className="w-9 h-9 rounded flex items-center justify-center text-white font-bold text-sm"
                 style={{ background: 'linear-gradient(135deg, #2563b0, #1e4a8a)', fontFamily: 'var(--font-display)' }}
               >
-                D&D
+                DD
               </div>
               <span className="text-white font-semibold text-sm tracking-wide hidden sm:block">
-                D&D Digital Solutions
+                DD Web Solutions
               </span>
             </a>
 
@@ -403,7 +403,7 @@ export default function HomePage() {
               className="animate-fade-up-delay-2 mt-6 leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '520px' }}
             >
-              D&D Digital Solutions builds professional websites for local small businesses —
+              DD Web Solutions builds professional websites for local small businesses —
               with a simple one-time setup fee and a low monthly maintenance plan that keeps
               everything running smoothly.
             </p>
@@ -751,7 +751,7 @@ export default function HomePage() {
                 actually picks up the phone.
               </h2>
               <p className="mt-5 leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1rem' }}>
-                We started D&D Digital Solutions because we saw too many local business owners get burned by agencies that
+                We started DD Web Solutions because we saw too many local business owners get burned by agencies that
                 overpromised and underdelivered — or charged a fortune for something simple.
               </p>
               <p className="mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1rem' }}>
@@ -910,7 +910,7 @@ export default function HomePage() {
                 >
                   D&D
                 </div>
-                <span className="font-semibold text-white text-sm">D&D Digital Solutions</span>
+                <span className="font-semibold text-white text-sm">DD Web Solutions</span>
               </div>
               <p className="text-xs leading-relaxed max-w-xs">
                 Professional websites for local small businesses. Simple pricing, real support.
@@ -928,7 +928,7 @@ export default function HomePage() {
 
           <div className="border-t mt-10 pt-8 flex flex-col sm:flex-row justify-between gap-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
             <p className="text-xs">
-              &copy; {new Date().getFullYear()} D&D Digital Solutions. All rights reserved.
+              &copy; {new Date().getFullYear()} DD Web Solutions. All rights reserved.
             </p>
             <div className="flex gap-4 text-xs">
               <a href="#" className="hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Privacy Policy</a>
