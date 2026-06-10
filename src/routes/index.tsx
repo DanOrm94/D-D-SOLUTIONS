@@ -117,7 +117,7 @@ const STEPS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Before D&D built our site, we were invisible online. Now we get 3–4 new enquiries every week directly through the website. Worth every cent.",
+      "Before D&D built our site, we were invisible online. Now we get 3–4 new enquiries every week directly through the website. Worth every penny.",
     author: 'Marge Tolliver',
     business: "Tolliver's Bakehouse",
     initials: 'MT',
@@ -237,7 +237,7 @@ function ContactForm() {
             type="tel"
             value={form.phone}
             onChange={handleChange}
-            placeholder="04xx xxx xxx"
+            placeholder="07xx xxx xxx"
           />
         </div>
       </div>
@@ -687,7 +687,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center mt-8 text-sm" style={{ color: '#7aaada' }}>
-            All prices include hosting setup. GST may apply. Custom quotes available for larger projects.
+            All prices include hosting setup. VAT may apply. Custom quotes available for larger projects.
           </p>
         </div>
       </section>
@@ -822,8 +822,8 @@ export default function HomePage() {
 
               <div className="mt-10 space-y-5">
                 {[
-                  { icon: '✉', label: 'Email us', value: 'hello@dddigitalsolutions.com.au' },
-                  { icon: '☎', label: 'Call us', value: '0400 000 000' },
+                  { icon: '✉', label: 'Email us', value: 'hello@dddigitalsolutions.com' },
+                  { icon: '☎', label: 'Call us', value: '0700 000 000' },
                   { icon: '⏱', label: 'Response time', value: 'Within 48 hours' },
                 ].map(item => (
                   <div key={item.label} className="flex items-start gap-4">
