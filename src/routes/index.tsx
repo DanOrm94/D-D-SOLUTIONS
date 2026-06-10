@@ -237,7 +237,7 @@ function ContactForm() {
             type="tel"
             value={form.phone}
             onChange={handleChange}
-            placeholder="07xx xxx xxx"
+            placeholder="07923034016"
           />
         </div>
       </div>
