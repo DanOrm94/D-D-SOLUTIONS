@@ -652,7 +652,7 @@ export default function HomePage() {
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
-                  <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>$79</span>
+                  <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>£79</span>
                   <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
                 </div>
               </div>
