@@ -6,7 +6,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'D&D Digital Solutions — Websites for Local Small Businesses' },
+      { title: 'DD Web Solutions — Websites for Local Small Businesses' },
       {
         name: 'description',
         content:
