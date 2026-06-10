@@ -344,17 +344,13 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2.5 no-underline">
-              <div
-                className="w-9 h-9 rounded flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: 'linear-gradient(135deg, #2563b0, #1e4a8a)', fontFamily: 'var(--font-display)' }}
-              >
-                DD
-              </div>
-              <span className="text-white font-semibold text-sm tracking-wide hidden sm:block">
-                DD Web Solutions
-              </span>
-            </a>
+         <a href="#" className="flex items-center no-underline">
+  <img
+    src="/logo.jpg"
+    alt="DD Web Solutions"
+    className="h-10 sm:h-12 w-auto object-contain"
+  />
+</a>
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-8">
