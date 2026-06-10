@@ -733,14 +733,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHY D&D ── */}
+      {/* ── WHY DD ── */}
       <section id="about" className="py-24" style={{ background: '#0a1628' }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="section-label" style={{ color: '#7aaada' }}>
                 <span style={{ background: '#e8b84b', width: 24, height: 2, display: 'inline-block' }} />
-                Why D&D
+                Why DD
               </span>
               <h2
                 className="font-display mt-4 text-white"
@@ -908,7 +908,7 @@ export default function HomePage() {
                   className="w-9 h-9 rounded flex items-center justify-center text-white font-bold text-sm"
                   style={{ background: 'linear-gradient(135deg, #2563b0, #1e4a8a)', fontFamily: 'var(--font-display)' }}
                 >
-                  D&D
+                  DD
                 </div>
                 <span className="font-semibold text-white text-sm">DD Web Solutions</span>
               </div>
