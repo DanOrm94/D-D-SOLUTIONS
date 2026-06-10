@@ -863,8 +863,8 @@ export default function HomePage() {
 
               <div className="mt-10 space-y-5">
                 {[
-                  { icon: '✉', label: 'Email us', value: 'hello@dddigitalsolutions.com' },
-                  { icon: '☎', label: 'Call us', value: '0700 000 000' },
+                  { icon: '✉', label: 'Email us', value: 'ddwebsolutions@hotmail.com' },
+                  { icon: '☎', label: 'Call us', value: '07923034016' },
                   { icon: '⏱', label: 'Response time', value: 'Within 48 hours' },
                 ].map(item => (
                   <div key={item.label} className="flex items-start gap-4">
