@@ -547,7 +547,48 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {/* Build Only */}
+<div
+  className="pricing-card rounded-xl p-8"
+  style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
+>
+  <div className="mb-6">
+    <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Build Only</p>
+    <div className="flex items-end gap-1">
+      <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£299</span>
+      <span className="text-sm pb-1" style={{ color: '#7aaada' }}>one-off</span>
+    </div>
+    <div className="mt-2">
+      <span className="text-sm" style={{ color: '#7aaada' }}>No monthly fee</span>
+    </div>
+  </div>
+  <ul className="space-y-3 mb-8">
+    {[
+      '1-page website',
+      'Mobile responsive',
+      'Contact form',
+      'SSL certificate',
+      'Basic SEO setup',
+      'You manage hosting',
+    ].map(item => (
+      <li key={item} className="flex items-center gap-2.5 text-sm" style={{ color: '#163468' }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="7" fill="#e0ecf9"/>
+          <path d="M5 8l2 2 4-4" stroke="#1e4a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        {item}
+      </li>
+    ))}
+  </ul>
+  <a href="#contact" className="block text-center py-3 rounded font-semibold text-sm transition-colors"
+    style={{ border: '1.5px solid #1e4a8a', color: '#1e4a8a', textDecoration: 'none' }}
+    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#e0ecf9' }}
+    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}
+  >
+    Get Started
+  </a>
+</div>
             {/* Starter */}
             <div
               className="pricing-card rounded-xl p-8"
