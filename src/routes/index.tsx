@@ -560,7 +560,7 @@ export default function HomePage() {
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
-                  <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>$29</span>
+                  <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>£29</span>
                   <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
                 </div>
               </div>
@@ -609,7 +609,7 @@ export default function HomePage() {
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
-                  <span className="font-semibold text-xl" style={{ color: 'white' }}>$49</span>
+                  <span className="font-semibold text-xl" style={{ color: 'white' }}>£49</span>
                   <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
                 </div>
               </div>
@@ -648,7 +648,7 @@ export default function HomePage() {
               <div className="mb-6">
                 <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Premium</p>
                 <div className="flex items-end gap-1">
-                  <span className="font-display font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>$350</span>
+                  <span className="font-display font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£350</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
