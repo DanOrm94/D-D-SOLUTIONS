@@ -308,7 +308,7 @@ export default function HomePage() {
                 className="btn-primary hidden sm:inline-flex items-center text-sm px-5 py-2.5"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
-                Get Started Free
+                Get Started
               </a>
               <button
                 className="md:hidden text-white p-1"
