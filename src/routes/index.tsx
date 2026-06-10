@@ -120,21 +120,21 @@ const TESTIMONIALS = [
       "Before DD built our site, we were invisible online. Now we get 3–4 new enquiries every week directly through the website. Worth every penny.",
     author: 'Chris Cox',
     business: "NDC Movements",
-    initials: 'MT',
+    initials: 'CC',
   },
   {
     quote:
       "I was nervous about the tech side but they made it so easy. The monthly fee means I never have to worry about the site breaking or going outdated.",
     author: 'Ryan Duddy',
     business: 'CR Statics',
-    initials: 'RO',
+    initials: 'RD',
   },
   {
     quote:
       "Our old site looked like it was from 2009. The new one actually reflects the quality of our work. Customers comment on it regularly.",
     author: 'Alex Webster',
     business: 'MGW Electrical',
-    initials: 'DK',
+    initials: 'AW',
   },
 ]
 
