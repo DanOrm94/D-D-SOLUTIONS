@@ -161,16 +161,21 @@ const WHY_ITEMS = [
   },
 ]
 
-// ── UPDATED: points to the Cloudflare Pages Function ──
-const WORKER_URL = '/api/contact'
-
 function ContactForm() {
-  const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState({
+    name: '',
+    business: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -179,15 +184,37 @@ function ContactForm() {
     setErrorMsg('')
 
     try {
-      const res = await fetch(WORKER_URL, {
+      const payload = {
+        access_key: '8c68b917-5a7f-4aa9-8cd6-d61b8415afad',
+        subject: 'New website enquiry - DD Web Solutions',
+        from_name: form.name,
+        name: form.name,
+        business: form.business,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+      }
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       })
 
-      if (!res.ok) throw new Error('Server error')
+      const data = await res.json()
+
+      if (!data.success) {
+        throw new Error(data.message || 'Form submission failed')
+      }
 
       setStatus('sent')
+      setForm({
+        name: '',
+        business: '',
+        email: '',
+        phone: '',
+        message: '',
+      })
     } catch (err) {
       console.error(err)
       setStatus('error')
@@ -200,8 +227,8 @@ function ContactForm() {
       <div className="text-center py-12">
         <div className="w-16 h-16 rounded-full bg-navy-100 flex items-center justify-center mx-auto mb-4">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14" fill="#1e4a8a"/>
-            <path d="M9 16l5 5 9-9" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            <circle cx="16" cy="16" r="14" fill="#1e4a8a" />
+            <path d="M9 16l5 5 9-9" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <h3 className="font-display text-2xl font-bold text-navy-900 mb-2">Message received!</h3>
@@ -214,8 +241,9 @@ function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-500 text-navy-700 mb-1.5">Your name</label>
+          <label htmlFor="name" className="block text-sm font-500 text-navy-700 mb-1.5">Your name</label>
           <input
+            id="name"
             className="form-input"
             name="name"
             value={form.name}
@@ -224,9 +252,11 @@ function ContactForm() {
             required
           />
         </div>
+
         <div>
-          <label className="block text-sm font-500 text-navy-700 mb-1.5">Business name</label>
+          <label htmlFor="business" className="block text-sm font-500 text-navy-700 mb-1.5">Business name</label>
           <input
+            id="business"
             className="form-input"
             name="business"
             value={form.business}
@@ -236,10 +266,12 @@ function ContactForm() {
           />
         </div>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-500 text-navy-700 mb-1.5">Email address</label>
+          <label htmlFor="email" className="block text-sm font-500 text-navy-700 mb-1.5">Email address</label>
           <input
+            id="email"
             className="form-input"
             name="email"
             type="email"
@@ -249,9 +281,11 @@ function ContactForm() {
             required
           />
         </div>
+
         <div>
-          <label className="block text-sm font-500 text-navy-700 mb-1.5">Phone (optional)</label>
+          <label htmlFor="phone" className="block text-sm font-500 text-navy-700 mb-1.5">Phone (optional)</label>
           <input
+            id="phone"
             className="form-input"
             name="phone"
             type="tel"
@@ -261,9 +295,11 @@ function ContactForm() {
           />
         </div>
       </div>
+
       <div>
-        <label className="block text-sm font-500 text-navy-700 mb-1.5">Tell us about your business</label>
+        <label htmlFor="message" className="block text-sm font-500 text-navy-700 mb-1.5">Tell us about your business</label>
         <textarea
+          id="message"
           className="form-input"
           name="message"
           value={form.message}
@@ -287,6 +323,7 @@ function ContactForm() {
       >
         {status === 'sending' ? 'Sending...' : 'Book My Free Discovery Call'}
       </button>
+
       <p className="text-xs text-navy-400 text-center">
         No obligation. No spam. Just a friendly conversation about your business.
       </p>
