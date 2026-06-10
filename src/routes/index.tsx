@@ -346,7 +346,7 @@ export default function HomePage() {
             {/* Logo */}
          <a href="#" className="flex items-center no-underline">
   <img
-    src="/logo.jpg"
+    src="/logo.png"
     alt="DD Web Solutions"
     className="h-10 sm:h-12 w-auto object-contain"
   />
