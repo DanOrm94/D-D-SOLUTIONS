@@ -10,7 +10,7 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content:
-          'Professional websites for local small businesses. One-time setup fee, low monthly maintenance. D&D Digital Solutions.',
+          'Professional websites for local small businesses. One-time setup fee, low monthly maintenance. DD Web Solutions.',
       },
     ],
     links: [
