@@ -616,7 +616,7 @@ export default function HomePage() {
               <div className="mb-6">
                 <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Build Only</p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£299</span>
+                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£499</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>one-off</span>
                 </div>
                 <div className="mt-2">
