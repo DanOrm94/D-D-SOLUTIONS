@@ -132,7 +132,7 @@ const TESTIMONIALS = [
   {
     quote:
       "Our old site looked like it was from 2009. The new one actually reflects the quality of our work. Customers comment on it regularly.",
-    author: 'AAtif',
+    author: 'Aatif',
     business: 'AK Traders',
     initials: 'AA',
   },
