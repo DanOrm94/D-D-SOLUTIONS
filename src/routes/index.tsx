@@ -658,7 +658,7 @@ export default function HomePage() {
               <div className="mb-6">
                 <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Starter</p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£150</span>
+                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£599</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
@@ -707,7 +707,7 @@ export default function HomePage() {
               <div className="mb-6">
                 <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#7aaada', letterSpacing: '0.1em' }}>Professional</p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: 'white', lineHeight: 1 }}>£250</span>
+                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: 'white', lineHeight: 1 }}>£650</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
@@ -750,7 +750,7 @@ export default function HomePage() {
               <div className="mb-6">
                 <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Premium</p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£350</span>
+                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£950</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
