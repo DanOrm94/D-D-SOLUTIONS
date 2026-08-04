@@ -125,16 +125,16 @@ const TESTIMONIALS = [
   {
     quote:
       "I was nervous about the tech side but they made it so easy. The monthly fee means I never have to worry about the site breaking or going outdated.",
-    author: 'Ryan Duddy',
-    business: 'CR Statics',
-    initials: 'RD',
+    author: 'Danny Marshall',
+    business: 'Dragonfly Developments',
+    initials: 'DM',
   },
   {
     quote:
       "Our old site looked like it was from 2009. The new one actually reflects the quality of our work. Customers comment on it regularly.",
-    author: 'Alex Webster',
-    business: 'MGW Electrical',
-    initials: 'AW',
+    author: 'AAtif',
+    business: 'AK Traders',
+    initials: 'AA',
   },
 ]
 
