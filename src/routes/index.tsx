@@ -897,6 +897,119 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── WHO WE WORK WITH ── */}
+<section className="py-24 bg-white">
+  <div className="max-w-6xl mx-auto px-5 sm:px-8">
+    <div className="text-center mb-16">
+      <span className="section-label">Who we work with</span>
+
+      <h2
+        className="font-display mt-4"
+        style={{
+          fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+          color: '#0a1628',
+          fontWeight: 700,
+        }}
+      >
+        Built for the businesses
+        <br />
+        that keep our communities running.
+      </h2>
+
+      <p
+        className="mt-5 mx-auto"
+        style={{
+          color: '#4a82cc',
+          maxWidth: '620px',
+          fontSize: '1rem',
+          lineHeight: 1.7,
+        }}
+      >
+        Whether you're just starting out or replacing an outdated website,
+        we create websites that help local businesses build trust and win
+        more customers.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        {
+          icon: '🚗',
+          title: 'Garages',
+          desc: 'Bookings, MOTs & servicing',
+        },
+        {
+          icon: '⚡',
+          title: 'Electricians',
+          desc: 'Generate more enquiries',
+        },
+        {
+          icon: '🔨',
+          title: 'Builders',
+          desc: 'Showcase previous work',
+        },
+        {
+          icon: '🚿',
+          title: 'Plumbers',
+          desc: 'Emergency call-outs',
+        },
+        {
+          icon: '🍽️',
+          title: 'Restaurants & Cafés',
+          desc: 'Menus & reservations',
+        },
+        {
+          icon: '🏋️',
+          title: 'Gyms & PTs',
+          desc: 'Membership enquiries',
+        },
+        {
+          icon: '🛍️',
+          title: 'Retail',
+          desc: 'Promote products online',
+        },
+        {
+          icon: '💼',
+          title: 'Professional Services',
+          desc: 'Accountants, consultants & more',
+        },
+      ].map((item) => (
+        <div
+          key={item.title}
+          className="rounded-xl p-7 transition-all hover:-translate-y-1"
+          style={{
+            border: '1.5px solid #e0ecf9',
+            background: '#f8fbff',
+          }}
+        >
+          <div
+            className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"
+            style={{
+              background: '#e0ecf9',
+            }}
+          >
+            {item.icon}
+          </div>
+
+          <h3
+            className="font-semibold text-lg mb-2"
+            style={{ color: '#0a1628' }}
+          >
+            {item.title}
+          </h3>
+
+          <p
+            className="text-sm leading-relaxed"
+            style={{ color: '#4a82cc' }}
+          >
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
       {/* ── TESTIMONIALS ── */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
