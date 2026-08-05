@@ -946,7 +946,7 @@ export default function HomePage() {
         {
           icon: '🔨',
           title: 'Builders',
-          desc: 'Showcase previous work',
+          desc: 'Showcase your projects',
         },
         {
           icon: '🚿',
