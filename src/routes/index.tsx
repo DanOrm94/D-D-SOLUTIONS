@@ -443,30 +443,35 @@ export default function HomePage() {
               Local Business Web Design
             </div>
 
-            <h1
-              className="font-display animate-fade-up-delay-1 mt-6 leading-tight"
-              style={{
-                fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
-                color: 'white',
-                fontWeight: 700,
-                lineHeight: 1.12,
-              }}
-            >
-              Your business deserves
-              <br />
-              <span style={{ color: '#7aaada' }}>a website that works</span>
-              <br />
-              as hard as you do.
-            </h1>
+           <h1
+  className="font-display animate-fade-up-delay-1 mt-6 leading-tight"
+  style={{
+    fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
+    color: 'white',
+    fontWeight: 700,
+    lineHeight: 1.12,
+  }}
+>
+  Professional Websites
+  <br />
+  <span style={{ color: '#7aaada' }}>That Help Local Businesses</span>
+  <br />
+  Get More Customers.
+</h1>
 
-            <p
-              className="animate-fade-up-delay-2 mt-6 leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', maxWidth: '520px' }}
-            >
-              DD Web Solutions builds professional websites for local small businesses —
-              with a simple one-time setup fee and a low monthly maintenance plan that keeps
-              everything running smoothly.
-            </p>
+<p
+  className="animate-fade-up-delay-2 mt-6 leading-relaxed"
+  style={{
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: '1.1rem',
+    maxWidth: '600px',
+  }}
+>
+  We design and build fast, modern websites that help local businesses
+  attract more customers, rank higher on Google, and turn visitors into
+  enquiries. Straightforward pricing, no long-term contracts, and ongoing
+  UK support.
+</p>
 
             <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-delay-3">
               <a href="#contact" className="btn-primary text-base">
