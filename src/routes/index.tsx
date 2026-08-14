@@ -543,14 +543,14 @@ export default function HomePage() {
             <span className="section-label">What we build</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <h2
-              className="font-display"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.2 }}
-            >
-              Small Business Web Design Services,
-              <br />
-              nothing you don't.
-            </h2>
+           <h2
+  className="font-display"
+  style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.2 }}
+>
+  Everything your business needs
+  <br />
+  to grow online.
+</h2>
             <p style={{ color: '#4a82cc', maxWidth: '320px', fontSize: '0.95rem', lineHeight: 1.6 }}>
               We focus on what actually grows local businesses online — clean design, local SEO, and reliable performance.
             </p>
