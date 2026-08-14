@@ -3,6 +3,41 @@ import { useState } from 'react'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
+  head: () => ({
+    meta: [
+      {
+        title: 'Web Design for Local Small Businesses | DD Web Solutions',
+      },
+      {
+        name: 'description',
+        content:
+          'Professional web design, local SEO and ongoing website support for UK small businesses. Fast, mobile-friendly websites built to generate enquiries and customers.',
+      },
+      {
+        name: 'robots',
+        content: 'index, follow',
+      },
+      {
+        property: 'og:title',
+        content: 'Web Design for Local Small Businesses | DD Web Solutions',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Professional websites, local SEO and ongoing support for small businesses across the UK.',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://ddwebsolution.com/',
+      },
+    ],
+  }),
 })
 
 const NAV_LINKS = [
@@ -47,9 +82,9 @@ const SERVICES = [
         <path d="M9 14l3 3 7-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'SEO Foundations',
+    title: 'Local SEO Foundations',
     description:
-      'Built-in search engine optimisation so local customers can find you on Google. Proper page titles, meta tags, and speed optimisation from day one.',
+      'Built-in local SEO foundations so nearby customers can find you on Google. Proper page titles, meta descriptions, internal linking, structured content, and speed optimisation from day one.',
   },
   {
     icon: (
@@ -452,11 +487,11 @@ export default function HomePage() {
     lineHeight: 1.12,
   }}
 >
-  Professional Websites
+  Web Design for Local
   <br />
-  <span style={{ color: '#7aaada' }}>That Help Local Businesses</span>
+  <span style={{ color: '#7aaada' }}>Small Businesses</span>
   <br />
-  Get More Customers.
+  That Gets You More Customers.
 </h1>
 
 <p
@@ -467,10 +502,10 @@ export default function HomePage() {
     maxWidth: '600px',
   }}
 >
-  We design and build fast, modern websites that help local businesses
-  attract more customers, rank higher on Google, and turn visitors into
-  enquiries. Straightforward pricing, no long-term contracts, and ongoing
-  UK support.
+  We design and build fast, modern websites for local small businesses
+  across the UK. Every website is built to attract customers, support local
+  SEO, and turn Google visitors into enquiries. Straightforward pricing,
+  no long-term contracts, and ongoing support.
 </p>
 
             <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-delay-3">
@@ -512,7 +547,7 @@ export default function HomePage() {
               className="font-display"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.2 }}
             >
-              Everything your website needs,
+              Small Business Web Design Services,
               <br />
               nothing you don't.
             </h2>
@@ -911,7 +946,7 @@ export default function HomePage() {
           fontWeight: 700,
         }}
       >
-        Built for the businesses
+        Web Design for Local Businesses and Trades
         <br />
         that keep our communities running.
       </h2>
@@ -926,8 +961,10 @@ export default function HomePage() {
         }}
       >
         Whether you're just starting out or replacing an outdated website,
-        we create websites that help local businesses build trust and win
-        more customers.
+        we create fast, professional websites for local businesses and trades.
+        From electricians and plumbers to garages, builders, restaurants and
+        professional services, each site is designed to build trust and generate
+        more enquiries from Google and other search engines.
       </p>
     </div>
 
@@ -1009,6 +1046,33 @@ export default function HomePage() {
     </div>
   </div>
 </section>
+
+      {/* ── SEO CONTENT ── */}
+      <section className="py-20" style={{ background: '#f8fbff' }}>
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+          <span className="section-label">Local SEO & Web Design</span>
+          <h2
+            className="font-display mt-4"
+            style={{
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+              color: '#0a1628',
+              fontWeight: 700,
+              lineHeight: 1.2,
+            }}
+          >
+            A website built to help your local business get found
+          </h2>
+          <p
+            className="mt-5 leading-relaxed"
+            style={{ color: '#4a82cc', fontSize: '1rem' }}
+          >
+            A good-looking website is only the starting point. DD Web Solutions
+            combines professional website design, mobile performance, technical
+            SEO foundations and clear calls to action so local customers can
+            find your business, understand what you offer and contact you.
+          </p>
+        </div>
+      </section>
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-24 bg-white">
@@ -1136,7 +1200,7 @@ export default function HomePage() {
                 <span className="font-semibold text-white text-sm">DD Web Solutions</span>
               </div>
               <p className="text-xs leading-relaxed max-w-xs">
-                Professional websites for local small businesses. Simple pricing, real support.
+                Professional web design, local SEO and ongoing website support for UK small businesses.
               </p>
             </div>
 
