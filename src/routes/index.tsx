@@ -638,65 +638,28 @@ export default function HomePage() {
               className="font-display mt-4"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#0a1628', fontWeight: 700 }}
             >
-              One setup fee. Low monthly rate.
+              Simple pricing.
               <br />
-              No surprises.
+              <span style={{ color: '#4a82cc' }}>Websites built to grow.</span>
             </h2>
             <p style={{ color: '#4a82cc', marginTop: '1rem', fontSize: '1rem' }}>
-              We believe great web presence shouldn't come with confusing quotes or hidden fees.
+              Choose the level of support your business needs. Every plan starts with a professionally built website and clear, upfront pricing.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
-            {/* Build Only */}
-            <div
-              className="pricing-card rounded-xl p-8"
-              style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
-            >
-              <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Build Only</p>
-                <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£499</span>
-                  <span className="text-sm pb-1" style={{ color: '#7aaada' }}>one-off</span>
-                </div>
-                <div className="mt-2">
-                  <span className="text-sm" style={{ color: '#7aaada' }}>No monthly fee</span>
-                </div>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {[
-                  '1-page website',
-                  'Mobile responsive',
-                  'Contact form',
-                  'SSL certificate',
-                  'Basic SEO setup',
-                  'You manage hosting',
-                ].map(item => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm" style={{ color: '#163468' }}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <circle cx="8" cy="8" r="7" fill="#e0ecf9"/>
-                      <path d="M5 8l2 2 4-4" stroke="#1e4a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#contact" className="block text-center py-3 rounded font-semibold text-sm transition-colors"
-                style={{ border: '1.5px solid #1e4a8a', color: '#1e4a8a', textDecoration: 'none' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#e0ecf9' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}
-              >
-                Get Started
-              </a>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Starter */}
             <div
               className="pricing-card rounded-xl p-8"
               style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
             >
               <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Starter</p>
+                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>
+                  Starter
+                </p>
+                <p className="text-sm mb-4" style={{ color: '#4a82cc' }}>
+                  Get your business online professionally.
+                </p>
                 <div className="flex items-end gap-1">
                   <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£599</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
@@ -708,12 +671,13 @@ export default function HomePage() {
               </div>
               <ul className="space-y-3 mb-8">
                 {[
-                  '3-page website',
+                  '3–5 page website',
                   'Mobile responsive',
                   'Contact form',
                   'SSL certificate',
                   'Basic SEO setup',
-                  'Monthly backups',
+                  'Hosting & backups',
+                  'Security updates',
                 ].map(item => (
                   <li key={item} className="flex items-center gap-2.5 text-sm" style={{ color: '#163468' }}>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -745,23 +709,30 @@ export default function HomePage() {
                 Most Popular
               </div>
               <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#7aaada', letterSpacing: '0.1em' }}>Professional</p>
+                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#7aaada', letterSpacing: '0.1em' }}>
+                  Professional
+                </p>
+                <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  Turn your website into a lead generator.
+                </p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: 'white', lineHeight: 1 }}>£649</span>
+                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: 'white', lineHeight: 1 }}>£899</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
-                  <span className="font-semibold text-xl" style={{ color: 'white' }}>£49</span>
+                  <span className="font-semibold text-xl" style={{ color: 'white' }}>£59</span>
                   <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
                 </div>
               </div>
               <ul className="space-y-3 mb-8">
                 {[
-                  'Up to 8 pages',
+                  'Up to 10 pages',
+                  'Professional website structure',
                   'Mobile responsive',
                   'Blog / news section',
-                  'Google Business integration',
-                  'Advanced SEO',
+                  'Google Business Profile integration',
+                  'Local SEO setup',
+                  'Google Analytics & Search Console',
                   'Monthly performance report',
                   'Content updates included',
                   'Priority support',
@@ -782,75 +753,37 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Premium */}
+            {/* Growth */}
             <div
               className="pricing-card rounded-xl p-8"
               style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
             >
               <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Premium</p>
+                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>
+                  Growth
+                </p>
+                <p className="text-sm mb-4" style={{ color: '#4a82cc' }}>
+                  For businesses ready to invest in growth.
+                </p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£949</span>
+                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£1,499</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
-                  <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>£79</span>
+                  <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>£99</span>
                   <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
                 </div>
               </div>
               <ul className="space-y-3 mb-8">
                 {[
                   'Unlimited pages',
-                  'E-commerce ready',
-                  'Booking / appointment system',
-                  'Full SEO campaign',
-                  'Weekly content updates',
+                  'E-commerce or booking functionality',
+                  'Advanced local SEO',
+                  'Ongoing SEO campaign',
+                  'Regular content updates',
                   'Monthly strategy call',
                   'Social media integration',
-                  'Dedicated account manager',
-                ].map(item => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm" style={{ color: '#163468' }}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <circle cx="8" cy="8" r="7" fill="#e0ecf9"/>
-                      <path d="M5 8l2 2 4-4" stroke="#1e4a8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a href="#contact" className="block text-center py-3 rounded font-semibold text-sm transition-colors"
-                style={{ border: '1.5px solid #1e4a8a', color: '#1e4a8a', textDecoration: 'none' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#e0ecf9' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}
-              >
-                Get Started
-              </a>
-            </div>
-
-            {/* Build and Lifetime Plan */}
-            <div
-              className="pricing-card rounded-xl p-8"
-              style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
-            >
-              <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>Build and Lifetime Plan</p>
-                <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£1999</span>
-                  <span className="text-sm pb-1" style={{ color: '#7aaada' }}>one-off</span>
-                </div>
-                <div className="mt-2">
-                  <span className="text-sm" style={{ color: '#7aaada' }}>No monthly fee, ever</span>
-                </div>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Unlimited pages',
-                  'E-commerce ready',
-                  'Booking / appointment system',
-                  'Full SEO campaign',
-                  'Weekly content updates',
-                  'Monthly strategy call',
-                  'Social media integration',
+                  'Conversion optimisation',
                   'Dedicated account manager',
                 ].map(item => (
                   <li key={item} className="flex items-center gap-2.5 text-sm" style={{ color: '#163468' }}>
@@ -872,8 +805,30 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* One-off option */}
+          <div
+            className="max-w-3xl mx-auto mt-10 rounded-xl p-7 text-center"
+            style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
+          >
+            <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>
+              Prefer to pay once?
+            </p>
+            <h3 className="font-display text-xl font-bold" style={{ color: '#0a1628' }}>
+              One-Off Website — £1,999
+            </h3>
+            <p className="text-sm mt-2" style={{ color: '#4a82cc' }}>
+              Pay once with no recurring DD Web Solutions fee. Includes an unlimited-page website,
+              e-commerce or booking functionality, full SEO campaign and launch support.
+            </p>
+            <a href="#contact" className="inline-block mt-5 font-semibold text-sm"
+              style={{ color: '#1e4a8a', textDecoration: 'none' }}
+            >
+              Ask about the one-off package →
+            </a>
+          </div>
+
           <p className="text-center mt-8 text-sm" style={{ color: '#7aaada' }}>
-            All prices include hosting setup. VAT may apply. Custom quotes available for larger projects.
+            All prices are shown clearly upfront. VAT may apply. Custom quotes available for larger projects.
           </p>
         </div>
       </section>
