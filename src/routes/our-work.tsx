@@ -76,13 +76,11 @@ export default function OurWorkPage() {
                         <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider" style={{ background: 'rgba(255,255,255,0.1)', color: '#e8b84b', border: '1px solid rgba(255,255,255,0.1)' }}>Featured project</div>
 
                         <div className="mt-6 flex items-center justify-start">
-                          <div className="rounded-xl bg-white p-4 sm:p-5 shadow-sm" style={{ maxWidth: '360px' }}>
-                            <img
-                              src="/sootlogo.jpg"
-                              alt="Soot Destroyer logo"
-                              className="block w-auto max-w-full h-auto max-h-24 sm:max-h-28 object-contain"
-                            />
-                          </div>
+                          <img
+                            src="/sootlogo.jpg"
+                            alt="Soot Destroyer logo"
+                            className="block w-auto max-w-[360px] h-auto max-h-32 sm:max-h-36 object-contain"
+                          />
                         </div>
 
                         <h2 className="font-display mt-5 text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}>{project.name}</h2>
