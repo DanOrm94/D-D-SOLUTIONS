@@ -44,6 +44,7 @@ const NAV_LINKS = [
   { label: 'Services', href: '#services' },
   { label: 'How It Works', href: '#process' },
   { label: 'Pricing', href: '#pricing' },
+  { label: 'Our Work', href: '/our-work' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -627,7 +628,7 @@ export default function HomePage() {
         </div>
       </section>
 
-    {/* ── PRICING ── */}
+      {/* ── PRICING ── */}
       <section id="pricing" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="text-center mb-4">
@@ -888,119 +889,74 @@ export default function HomePage() {
       </section>
 
       {/* ── WHO WE WORK WITH ── */}
-<section className="py-24 bg-white">
-  <div className="max-w-6xl mx-auto px-5 sm:px-8">
-    <div className="text-center mb-16">
-      <span className="section-label">Who we work with</span>
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-16">
+            <span className="section-label">Who we work with</span>
 
-      <h2
-        className="font-display mt-4"
-        style={{
-          fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-          color: '#0a1628',
-          fontWeight: 700,
-        }}
-      >
-        Web Design for Local Businesses and Trades
-        <br />
-        that keep our communities running.
-      </h2>
+            <h2
+              className="font-display mt-4"
+              style={{
+                fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+                color: '#0a1628',
+                fontWeight: 700,
+              }}
+            >
+              Web Design for Local Businesses and Trades
+              <br />
+              that keep our communities running.
+            </h2>
 
-      <p
-        className="mt-5 mx-auto"
-        style={{
-          color: '#4a82cc',
-          maxWidth: '620px',
-          fontSize: '1rem',
-          lineHeight: 1.7,
-        }}
-      >
-        Whether you're just starting out or replacing an outdated website,
-        we create fast, professional websites for local businesses and trades.
-        From electricians and plumbers to garages, builders, restaurants and
-        professional services, each site is designed to build trust and generate
-        more enquiries from Google and other search engines.
-      </p>
-    </div>
-
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {[
-        {
-          icon: '🚗',
-          title: 'Garages',
-          desc: 'Bookings, MOTs & servicing',
-        },
-        {
-          icon: '⚡',
-          title: 'Electricians',
-          desc: 'Generate more enquiries',
-        },
-        {
-          icon: '🔨',
-          title: 'Builders',
-          desc: 'Showcase your projects',
-        },
-        {
-          icon: '🚿',
-          title: 'Plumbers',
-          desc: 'Emergency call-outs',
-        },
-        {
-          icon: '🍽️',
-          title: 'Restaurants & Cafés',
-          desc: 'Menus & reservations',
-        },
-        {
-          icon: '🏋️',
-          title: 'Gyms & PTs',
-          desc: 'Membership enquiries',
-        },
-        {
-          icon: '🛍️',
-          title: 'Retail',
-          desc: 'Promote products online',
-        },
-        {
-          icon: '💼',
-          title: 'Professional Services',
-          desc: 'Accountants, consultants & more',
-        },
-      ].map((item) => (
-        <div
-          key={item.title}
-          className="rounded-xl p-7 transition-all hover:-translate-y-1"
-          style={{
-            border: '1.5px solid #e0ecf9',
-            background: '#f8fbff',
-          }}
-        >
-          <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"
-            style={{
-              background: '#e0ecf9',
-            }}
-          >
-            {item.icon}
+            <p
+              className="mt-5 mx-auto"
+              style={{
+                color: '#4a82cc',
+                maxWidth: '620px',
+                fontSize: '1rem',
+                lineHeight: 1.7,
+              }}
+            >
+              Whether you're just starting out or replacing an outdated website,
+              we create fast, professional websites for local businesses and trades.
+              From electricians and plumbers to garages, builders, restaurants and
+              professional services, each site is designed to build trust and generate
+              more enquiries from Google and other search engines.
+            </p>
           </div>
 
-          <h3
-            className="font-semibold text-lg mb-2"
-            style={{ color: '#0a1628' }}
-          >
-            {item.title}
-          </h3>
-
-          <p
-            className="text-sm leading-relaxed"
-            style={{ color: '#4a82cc' }}
-          >
-            {item.desc}
-          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { icon: '🚗', title: 'Garages', desc: 'Bookings, MOTs & servicing' },
+              { icon: '⚡', title: 'Electricians', desc: 'Generate more enquiries' },
+              { icon: '🔨', title: 'Builders', desc: 'Showcase your projects' },
+              { icon: '🚿', title: 'Plumbers', desc: 'Emergency call-outs' },
+              { icon: '🍽️', title: 'Restaurants & Cafés', desc: 'Menus & reservations' },
+              { icon: '🏋️', title: 'Gyms & PTs', desc: 'Membership enquiries' },
+              { icon: '🛍️', title: 'Retail', desc: 'Promote products online' },
+              { icon: '💼', title: 'Professional Services', desc: 'Accountants, consultants & more' },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl p-7 transition-all hover:-translate-y-1"
+                style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
+              >
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"
+                  style={{ background: '#e0ecf9' }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: '#0a1628' }}>
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#4a82cc' }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ── SEO CONTENT ── */}
       <section className="py-20" style={{ background: '#f8fbff' }}>
@@ -1029,6 +985,98 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── RECENT WORK ── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-12">
+            <span className="section-label">Recent work</span>
+            <h2
+              className="font-display mt-4"
+              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#0a1628', fontWeight: 700 }}
+            >
+              A recent project, built for a real business.
+            </h2>
+            <p className="mt-4 mx-auto" style={{ color: '#4a82cc', maxWidth: '620px', lineHeight: 1.7 }}>
+              See how DD Web Solutions turns a local business brief into a professional website focused on trust and enquiries.
+            </p>
+          </div>
+
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div
+                className="min-h-[300px] lg:min-h-[360px] p-8 sm:p-10 flex items-end"
+                style={{ background: 'linear-gradient(160deg, #0f2347, #1e4a8a)' }}
+              >
+                <div>
+                  <span
+                    className="inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider"
+                    style={{ background: 'rgba(255,255,255,0.1)', color: '#e8b84b', border: '1px solid rgba(255,255,255,0.1)' }}
+                  >
+                    Featured project
+                  </span>
+                  <h3
+                    className="font-display text-white mt-4"
+                    style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}
+                  >
+                    Soot Destroyer
+                  </h3>
+                  <p className="mt-3" style={{ color: 'rgba(255,255,255,0.72)' }}>
+                    Chimney & Soot Removal Services
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-8 sm:p-10 flex flex-col justify-center">
+                <span className="section-label">Website project</span>
+                <h3
+                  className="font-display mt-4"
+                  style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}
+                >
+                  Professional, clear and built to generate enquiries.
+                </h3>
+                <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc' }}>
+                  A professional website designed to give Soot Destroyer a stronger online presence, clearly present its services, and make it easier for potential customers to get in touch.
+                </p>
+
+                <div className="flex flex-wrap gap-2.5 mt-7">
+                  {['Website Design', 'Mobile Responsive', 'SEO Ready', 'Enquiry Focused'].map(tag => (
+                    <span
+                      key={tag}
+                      className="rounded-full px-3 py-1.5 text-xs font-semibold"
+                      style={{ background: '#e0ecf9', color: '#1e4a8a' }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-4 items-center">
+                  <a
+                    href="/our-work"
+                    className="btn-primary inline-flex items-center"
+                    style={{ fontFamily: 'var(--font-body)', textDecoration: 'none' }}
+                  >
+                    View Our Work
+                  </a>
+                  <a
+                    href="https://www.sootdestroyer.co.uk/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-sm"
+                    style={{ color: '#1e4a8a', textDecoration: 'none' }}
+                  >
+                    View live website →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── TESTIMONIALS ── */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
@@ -1049,7 +1097,6 @@ export default function HomePage() {
                 className="testimonial-card rounded-xl p-7"
                 style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
               >
-                {/* Stars */}
                 <div className="flex gap-0.5 mb-5">
                   {[1,2,3,4,5].map(s => (
                     <svg key={s} width="16" height="16" viewBox="0 0 16 16" fill="#e8b84b">
@@ -1087,7 +1134,6 @@ export default function HomePage() {
       <section id="contact" className="py-24" style={{ background: '#f0f7ff' }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Copy */}
             <div className="lg:sticky lg:top-24">
               <span className="section-label">Get in touch</span>
               <h2
@@ -1129,7 +1175,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Form */}
             <div className="bg-white rounded-2xl p-8 shadow-sm" style={{ border: '1.5px solid #e0ecf9' }}>
               <h3 className="font-display font-bold text-xl mb-6" style={{ color: '#0a1628' }}>
                 Book your free discovery call
