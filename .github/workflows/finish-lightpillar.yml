@@ -1,0 +1,35 @@
+name: Finish LightPillar integration
+
+on:
+  push:
+    branches:
+      - lightpillar-integration-2026-09-13
+    paths:
+      - '.github/workflows/finish-lightpillar.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Sync lockfile
+        run: npm install --package-lock-only --ignore-scripts
+      - name: Validate install
+        run: npm ci --ignore-scripts
+      - name: Validate production build
+        run: npm run build
+      - name: Commit lockfile and remove temporary workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/finish-lightpillar.yml
+          git add package-lock.json
+          git commit -m "Integrate LightPillar with synced lockfile"
+          git push origin HEAD:lightpillar-integration-2026-09-13
