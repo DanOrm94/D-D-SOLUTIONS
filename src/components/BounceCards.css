@@ -17,14 +17,143 @@
 }
 
 .service-card {
+  position: relative;
+  isolation: isolate;
   transform-origin: 50% 50%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform, opacity;
+  min-height: 275px;
+  padding: 30px !important;
+  border-radius: 20px !important;
+  border: 1px solid transparent !important;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+              linear-gradient(135deg, rgba(15,35,71,.14), rgba(37,99,176,.22), rgba(232,184,75,.28)) border-box !important;
+  box-shadow:
+    0 10px 24px rgba(10,22,40,.055),
+    0 2px 5px rgba(10,22,40,.035),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(37,99,176,.12), #e8b84b, rgba(37,99,176,.12));
+  opacity: .9;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -90px;
+  right: -70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,130,204,.10), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.service-card > div:first-child {
+  width: 56px !important;
+  height: 56px !important;
+  margin-bottom: 22px !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(30,74,138,.10);
+  background: linear-gradient(145deg, #f7faff, #eaf2fb) !important;
+  color: #1e4a8a !important;
+  box-shadow:
+    0 8px 18px rgba(30,74,138,.08),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.service-card > div:first-child svg {
+  width: 27px;
+  height: 27px;
+}
+
+.service-card h3 {
+  position: relative;
+  color: #0a1628 !important;
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -.012em;
+  margin-bottom: 11px !important;
+}
+
+.service-card p {
+  position: relative;
+  color: #5b6f88 !important;
+  font-size: .9rem;
+  line-height: 1.75 !important;
+  max-width: 34rem;
+}
+
+/* The first card acts as the visual anchor. */
+.service-card:first-child {
+  background: linear-gradient(150deg, #0a1628 0%, #0f2347 50%, #173b72 100%) padding-box,
+              linear-gradient(135deg, rgba(232,184,75,.55), rgba(37,99,176,.45), rgba(255,255,255,.14)) border-box !important;
+  border-color: transparent !important;
+  box-shadow:
+    0 18px 42px rgba(6,15,32,.18),
+    0 4px 10px rgba(6,15,32,.10),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.service-card:first-child::before {
+  background: linear-gradient(90deg, rgba(232,184,75,.12), #e8b84b, rgba(255,255,255,.25));
+}
+
+.service-card:first-child::after {
+  background: radial-gradient(circle, rgba(232,184,75,.13), transparent 70%);
+}
+
+.service-card:first-child > div:first-child {
+  background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.06)) !important;
+  border-color: rgba(255,255,255,.10);
+  color: #fff !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 10px 22px rgba(0,0,0,.14);
+}
+
+.service-card:first-child h3 {
+  color: #fff !important;
+}
+
+.service-card:first-child p {
+  color: rgba(255,255,255,.70) !important;
+}
+
+.service-card:hover {
+  box-shadow:
+    0 22px 48px rgba(10,22,40,.12),
+    0 6px 14px rgba(10,22,40,.05),
+    inset 0 1px 0 rgba(255,255,255,.98);
+}
+
+.service-card:first-child:hover {
+  box-shadow:
+    0 24px 54px rgba(6,15,32,.22),
+    0 8px 18px rgba(6,15,32,.12),
+    inset 0 1px 0 rgba(255,255,255,.10);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .service-card {
     will-change: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-card {
+    min-height: 0;
+    padding: 26px !important;
+    border-radius: 18px !important;
   }
 }
