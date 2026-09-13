@@ -1,4 +1,5 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import BounceCards from '../components/BounceCards'
 import LightPillar from '../components/LightPillar'
 import '../styles.css'
 
@@ -22,7 +23,6 @@ export const Route = createRootRoute({
       {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com',
-        crossOrigin: 'anonymous',
       },
       {
         rel: 'stylesheet',
@@ -58,6 +58,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             />
           </div>
           <div className="site-content">{children}</div>
+          <BounceCards
+            selector=".service-card"
+            animationDelay={0.2}
+            animationStagger={0.08}
+            easeType="elastic.out(1, 0.6)"
+            enableHover
+          />
         </div>
         <Scripts />
       </body>
