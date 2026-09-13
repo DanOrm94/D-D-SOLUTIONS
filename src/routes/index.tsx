@@ -367,18 +367,20 @@ export default function HomePage() {
 
           {/* Mobile menu */}
           {menuOpen && (
-            <div className="md:hidden border-t border-white border-opacity-10 py-4 space-y-1">
-              {NAV_LINKS.map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="block py-2 nav-link premium-nav-link text-base"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <span className="premium-nav-link__label">{link.label}</span>
-                </a>
-              ))}
-              <a href="#contact" className="btn-primary block text-center mt-4 text-sm" style={{ fontFamily: 'var(--font-body)' }}>
+            <div className="mobile-nav-panel md:hidden">
+              <nav aria-label="Mobile navigation" className="mobile-nav-links">
+                {NAV_LINKS.map(link => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="nav-link premium-nav-link text-base"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <span className="premium-nav-link__label">{link.label}</span>
+                  </a>
+                ))}
+              </nav>
+              <a href="#contact" className="btn-primary block text-center mt-4 text-sm" style={{ fontFamily: 'var(--font-body)' }} onClick={() => setMenuOpen(false)}>
                 Get Started Free
               </a>
             </div>
@@ -569,7 +571,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
+      {/* ── PRICING ── */
       <section id="pricing" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="text-center mb-4">
