@@ -1,4 +1,5 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import LightPillar from '../components/LightPillar'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -39,7 +40,25 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <div className="site-shell">
+          <div className="site-background" aria-hidden="true">
+            <LightPillar
+              topColor="#5227FF"
+              bottomColor="#FF9FFC"
+              intensity={1.0}
+              rotationSpeed={0.3}
+              glowAmount={0.005}
+              pillarWidth={3.0}
+              pillarHeight={0.4}
+              noiseIntensity={0.5}
+              pillarRotation={0}
+              interactive={false}
+              mixBlendMode="normal"
+              quality="medium"
+            />
+          </div>
+          <div className="site-content">{children}</div>
+        </div>
         <Scripts />
       </body>
     </html>
