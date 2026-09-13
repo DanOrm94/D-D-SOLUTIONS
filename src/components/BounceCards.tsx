@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { gsap } from 'gsap'
 import './BounceCards.css'
 
 interface BounceCardsProps {
@@ -20,11 +19,21 @@ export default function BounceCards({
   enableHover = true,
 }: BounceCardsProps) {
   useEffect(() => {
-    const cards = gsap.utils.toArray<HTMLElement>(selector)
-    if (!cards.length) return
+    let cancelled = false
+    let cleanup: (() => void) | undefined
 
-    const ctx = gsap.context(() => {
-      gsap.set(cards, { transformOrigin: '50% 50%', willChange: 'transform, opacity' })
+    const init = async () => {
+      const { gsap } = await import('gsap')
+      if (cancelled) return
+
+      const cards = gsap.utils.toArray<HTMLElement>(selector)
+      if (!cards.length) return
+
+      gsap.set(cards, {
+        transformOrigin: '50% 50%',
+        willChange: 'transform, opacity',
+      })
+
       gsap.fromTo(
         cards,
         { autoAlpha: 0, scale: 0.88, y: 28 },
@@ -40,9 +49,12 @@ export default function BounceCards({
         },
       )
 
-      if (!enableHover) return
+      if (!enableHover) {
+        cleanup = () => gsap.killTweensOf(cards)
+        return
+      }
 
-      const cleanups = cards.map((card) => {
+      const handlers = cards.map((card) => {
         const handleEnter = () => {
           gsap.killTweensOf(card)
           gsap.to(card, {
@@ -77,12 +89,18 @@ export default function BounceCards({
         }
       })
 
-      ;(ctx as unknown as { add?: (fn: () => void) => void }).add?.(() => {
-        cleanups.forEach((cleanup) => cleanup())
-      })
-    }, document.body)
+      cleanup = () => {
+        gsap.killTweensOf(cards)
+        handlers.forEach((remove) => remove())
+      }
+    }
 
-    return () => ctx.revert()
+    void init()
+
+    return () => {
+      cancelled = true
+      cleanup?.()
+    }
   }, [selector, animationDelay, animationStagger, easeType, enableHover, className])
 
   return null
