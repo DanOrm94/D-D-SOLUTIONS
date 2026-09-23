@@ -39,6 +39,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
       </head>
       <body>
         <div className="site-shell">
