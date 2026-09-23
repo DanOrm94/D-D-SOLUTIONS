@@ -551,13 +551,18 @@ export default function HomePage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section id="process" className="py-24" style={{ background: '#f0f7ff' }}>
+      <section id="process" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <span className="section-label">Simple process</span>
             <h2
               className="font-display mt-4"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#0a1628', fontWeight: 700 }}
+              style={{
+                fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+                color: '#0a1628',
+                fontWeight: 700,
+                lineHeight: 1.2,
+              }}
             >
               From idea to live website
               <br />
@@ -565,21 +570,81 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {STEPS.map((step) => (
-              <div key={step.number} className="relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+            {[
+              {
+                title: 'Free Discovery Call',
+                description:
+                  'We learn about your business, your customers, and what you need from your website. No obligation, no jargon.',
+                icon: (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m2.1-5.4a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Design & Build',
+                description:
+                  'We design a site tailored to your brand. You review, request tweaks, and approve before anything goes live.',
+                icon: (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 20h9" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 3.5a2.12 2.12 0 013 3L8 18l-4 1 1-4L16.5 3.5z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Launch Day',
+                description:
+                  "Your website goes live. We handle domain connection, hosting, and all the technical bits so you don't have to.",
+                icon: (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 6l6 6-6 6" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Ongoing Care',
+                description:
+                  'Sit back while we handle updates, security, backups and ongoing improvements. Your site stays secure, fast and up to date.',
+                icon: (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42" />
+                    <circle cx="12" cy="12" r="4" />
+                  </svg>
+                ),
+              },
+            ].map((step) => (
+              <div
+                key={step.title}
+                className="group relative rounded-2xl border border-slate-200/80 bg-white p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200"
+                style={{
+                  boxShadow: '0 8px 28px rgba(10,22,40,0.045)',
+                }}
+              >
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center mb-5 font-display font-bold text-lg"
-                  style={{ background: '#1e4a8a', color: 'white' }}
+                  className="mb-7 flex h-11 w-11 items-center justify-center rounded-xl transition-colors duration-300"
+                  style={{ background: '#eff6ff', color: '#1e4a8a' }}
                 >
-                  {step.number}
+                  {step.icon}
                 </div>
-                <h3 className="font-semibold text-lg mb-2.5 text-navy-900" style={{ color: '#0a1628' }}>
+
+                <h3
+                  className="mb-3 font-display text-xl font-semibold tracking-tight"
+                  style={{ color: '#0a1628' }}
+                >
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#4a82cc' }}>
+
+                <p className="text-sm leading-7" style={{ color: '#5d7190' }}>
                   {step.description}
                 </p>
+
+                <div
+                  className="mt-7 h-px w-10 bg-[#1e4a8a] transition-all duration-300 group-hover:w-16"
+                  aria-hidden="true"
+                />
               </div>
             ))}
           </div>
