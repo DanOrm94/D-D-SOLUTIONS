@@ -1227,13 +1227,21 @@ export default function HomePage() {
               </p>
             </div>
 
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              {NAV_LINKS.map(link => (
-                <a key={link.label} href={link.href} className="text-xs hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
-                  {link.label}
-                </a>
-              ))}
-            </nav>
+            <div className="flex flex-col items-start md:items-end gap-4">
+              <nav className="flex flex-wrap gap-x-6 gap-y-2">
+                {NAV_LINKS.map(link => (
+                  <a key={link.label} href={link.href} className="text-xs hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+              <div className="text-left md:text-right">
+                <p className="text-xs mb-2" style={{ color: 'rgba(255,255,255,0.42)' }}>
+                  Like DD Web Solutions? Add us as a preferred source on Google.
+                </p>
+                <div google-add-preferred-source-btn data-theme="dark"></div>
+              </div>
+            </div>
           </div>
 
           <div className="border-t mt-10 pt-8 flex flex-col sm:flex-row justify-between gap-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
