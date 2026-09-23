@@ -586,7 +586,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRICING ── */
+      {/* ── PRICING ── */}
       <section id="pricing" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="text-center mb-4">
