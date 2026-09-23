@@ -367,7 +367,22 @@ export default function HomePage() {
 
           {/* Mobile menu */}
           {menuOpen && (
-            <div className="mobile-nav-panel md:hidden">
+            <div
+              className="mobile-nav-panel md:hidden"
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                right: 0,
+                width: '100%',
+                background: '#060f20',
+                color: '#ffffff',
+                borderTop: '1px solid rgba(255,255,255,0.12)',
+                borderBottom: '1px solid rgba(255,255,255,0.12)',
+                boxShadow: '0 24px 48px rgba(0,0,0,0.5)',
+                zIndex: 9999,
+              }}
+            >
               <nav aria-label="Mobile navigation" className="mobile-nav-links">
                 {NAV_LINKS.map(link => (
                   <a
