@@ -367,6 +367,12 @@ export default function HomePage() {
 
           {/* Mobile menu */}
           {menuOpen && (
+            <button
+              aria-label="Close mobile menu"
+              className="mobile-nav-backdrop md:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+          )}
             <div
               className="mobile-nav-panel md:hidden"
               style={{
@@ -446,11 +452,9 @@ export default function HomePage() {
     lineHeight: 1.12,
   }}
 >
-  Web Design for Local
+  Websites that make local
   <br />
-  <span style={{ color: '#7aaada' }}>Small Businesses</span>
-  <br />
-  That Gets You More Customers.
+  <span style={{ color: '#7aaada' }}>businesses look their best.</span>
 </h1>
 
 <p
@@ -461,18 +465,17 @@ export default function HomePage() {
     maxWidth: '600px',
   }}
 >
-  We design and build fast, modern websites for local small businesses
-  across the UK. Every website is built to attract customers, support local
-  SEO, and turn Google visitors into enquiries. Straightforward pricing,
-  no long-term contracts, and ongoing support.
+  High-performance websites, local SEO and ongoing support for UK small
+  businesses — designed to build trust, turn visitors into enquiries, and
+  make your business look as good online as it does in person.
 </p>
 
             <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-delay-3">
               <a href="#contact" className="btn-primary text-base">
                 Book a Free Call
               </a>
-              <a href="#pricing" className="btn-outline text-base">
-                See Pricing
+              <a href="/our-work" className="btn-outline text-base">
+                See Our Work
               </a>
             </div>
 
@@ -495,6 +498,96 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #fafcff)' }} />
       </section>
 
+      {/* ── RECENT WORK ── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-12">
+            <span className="section-label">Recent work</span>
+            <h2 className="font-display section-title mt-4">
+              A recent project, built for a real business.
+            </h2>
+            <p className="section-copy mt-4 mx-auto" style={{ maxWidth: '620px' }}>
+              See how DD Web Solutions turns a local business brief into a professional website focused on trust and enquiries.
+            </p>
+          </div>
+
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div
+                className="min-h-[300px] lg:min-h-[360px] p-8 sm:p-10 flex items-end"
+                style={{ background: 'linear-gradient(160deg, #0f2347, #1e4a8a)' }}
+              >
+                <div>
+                  <span
+                    className="inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider"
+                    style={{ background: 'rgba(255,255,255,0.1)', color: '#e8b84b', border: '1px solid rgba(255,255,255,0.1)' }}
+                  >
+                    Featured project
+                  </span>
+                  <h3
+                    className="font-display text-white mt-4"
+                    style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}
+                  >
+                    Soot Destroyer
+                  </h3>
+                  <p className="mt-3" style={{ color: 'rgba(255,255,255,0.72)' }}>
+                    Chimney & Soot Removal Services
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-8 sm:p-10 flex flex-col justify-center">
+                <span className="section-label">Website project</span>
+                <h3
+                  className="font-display mt-4"
+                  style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}
+                >
+                  Professional, clear and built to generate enquiries.
+                </h3>
+                <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc' }}>
+                  A professional website designed to give Soot Destroyer a stronger online presence, clearly present its services, and make it easier for potential customers to get in touch.
+                </p>
+
+                <div className="flex flex-wrap gap-2.5 mt-7">
+                  {['Website Design', 'Mobile Responsive', 'SEO Ready', 'Enquiry Focused'].map(tag => (
+                    <span
+                      key={tag}
+                      className="rounded-full px-3 py-1.5 text-xs font-semibold"
+                      style={{ background: '#e0ecf9', color: '#1e4a8a' }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-4 items-center">
+                  <a
+                    href="/our-work"
+                    className="btn-primary inline-flex items-center"
+                    style={{ fontFamily: 'var(--font-body)', textDecoration: 'none' }}
+                  >
+                    View Our Work
+                  </a>
+                  <a
+                    href="https://www.sootdestroyer.co.uk/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-sm"
+                    style={{ color: '#1e4a8a', textDecoration: 'none' }}
+                  >
+                    View live website →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
       {/* ── SERVICES ── */}
       <section id="services" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
@@ -502,15 +595,12 @@ export default function HomePage() {
             <span className="section-label">What we build</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-           <h2
-  className="font-display"
-  style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.2 }}
->
+           <h2 className="font-display section-title">
   Everything your business needs
   <br />
   to grow online.
 </h2>
-            <p style={{ color: '#4a82cc', maxWidth: '320px', fontSize: '0.95rem', lineHeight: 1.6 }}>
+            <p className="section-copy" style={{ maxWidth: '320px' }}>
               We focus on what actually grows local businesses online — clean design, local SEO, and reliable performance.
             </p>
           </div>
@@ -527,7 +617,7 @@ export default function HomePage() {
                 }}
               >
                 <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-5"
+                  className="service-icon w-12 h-12 rounded-lg flex items-center justify-center mb-5"
                   style={{
                     background: i === 0 ? 'rgba(255,255,255,0.12)' : '#e0ecf9',
                     color: i === 0 ? 'white' : '#1e4a8a',
@@ -1005,98 +1095,6 @@ export default function HomePage() {
             SEO foundations and clear calls to action so local customers can
             find your business, understand what you offer and contact you.
           </p>
-        </div>
-      </section>
-
-      {/* ── RECENT WORK ── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="text-center mb-12">
-            <span className="section-label">Recent work</span>
-            <h2
-              className="font-display mt-4"
-              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#0a1628', fontWeight: 700 }}
-            >
-              A recent project, built for a real business.
-            </h2>
-            <p className="mt-4 mx-auto" style={{ color: '#4a82cc', maxWidth: '620px', lineHeight: 1.7 }}>
-              See how DD Web Solutions turns a local business brief into a professional website focused on trust and enquiries.
-            </p>
-          </div>
-
-          <div
-            className="rounded-2xl overflow-hidden"
-            style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div
-                className="min-h-[300px] lg:min-h-[360px] p-8 sm:p-10 flex items-end"
-                style={{ background: 'linear-gradient(160deg, #0f2347, #1e4a8a)' }}
-              >
-                <div>
-                  <span
-                    className="inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider"
-                    style={{ background: 'rgba(255,255,255,0.1)', color: '#e8b84b', border: '1px solid rgba(255,255,255,0.1)' }}
-                  >
-                    Featured project
-                  </span>
-                  <h3
-                    className="font-display text-white mt-4"
-                    style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}
-                  >
-                    Soot Destroyer
-                  </h3>
-                  <p className="mt-3" style={{ color: 'rgba(255,255,255,0.72)' }}>
-                    Chimney & Soot Removal Services
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-8 sm:p-10 flex flex-col justify-center">
-                <span className="section-label">Website project</span>
-                <h3
-                  className="font-display mt-4"
-                  style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}
-                >
-                  Professional, clear and built to generate enquiries.
-                </h3>
-                <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc' }}>
-                  A professional website designed to give Soot Destroyer a stronger online presence, clearly present its services, and make it easier for potential customers to get in touch.
-                </p>
-
-                <div className="flex flex-wrap gap-2.5 mt-7">
-                  {['Website Design', 'Mobile Responsive', 'SEO Ready', 'Enquiry Focused'].map(tag => (
-                    <span
-                      key={tag}
-                      className="rounded-full px-3 py-1.5 text-xs font-semibold"
-                      style={{ background: '#e0ecf9', color: '#1e4a8a' }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-4 items-center">
-                  <a
-                    href="/our-work"
-                    className="btn-primary inline-flex items-center"
-                    style={{ fontFamily: 'var(--font-body)', textDecoration: 'none' }}
-                  >
-                    View Our Work
-                  </a>
-                  <a
-                    href="https://www.sootdestroyer.co.uk/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-semibold text-sm"
-                    style={{ color: '#1e4a8a', textDecoration: 'none' }}
-                  >
-                    View live website →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
