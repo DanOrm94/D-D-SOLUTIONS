@@ -42,12 +42,13 @@ export default function OurWorkPage() {
             <a href="/" className="flex items-center no-underline" aria-label="DD Web Solutions home">
               <img src="/logo.png" alt="DD Web Solutions" className="h-10 sm:h-12 w-auto object-contain" />
             </a>
-            <nav className="hidden md:flex items-center gap-8">
-              <a href="/" className="nav-link">Home</a>
-              <a href="/our-work" className="nav-link">Our Work</a>
-              <a href="/#services" className="nav-link">Services</a>
-              <a href="/#pricing" className="nav-link">Pricing</a>
-              <a href="/#contact" className="nav-link">Contact</a>
+            <nav className="hidden md:flex items-center gap-2" aria-label="Primary navigation">
+              <a href="/" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Home</span></a>
+              <a href="/#services" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Services</span></a>
+              <a href="/our-work" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Our Work</span></a>
+              <a href="/#pricing" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Pricing</span></a>
+              <a href="/meet-the-team" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Meet the Team</span></a>
+              <a href="/#contact" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Contact</span></a>
             </nav>
             <a href="/#contact" className="btn-primary hidden sm:inline-flex items-center text-sm px-5 py-2.5" style={{ fontFamily: 'var(--font-body)' }}>Get Started</a>
           </div>
