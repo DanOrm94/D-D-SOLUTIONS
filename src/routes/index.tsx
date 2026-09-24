@@ -367,14 +367,14 @@ export default function HomePage() {
 
           {/* Mobile menu */}
           {menuOpen && (
-            <button
-              aria-label="Close mobile menu"
-              className="mobile-nav-backdrop md:hidden"
-              onClick={() => setMenuOpen(false)}
-            />
-          )}
-            <div
-              className="mobile-nav-panel md:hidden"
+            <>
+              <button
+                aria-label="Close mobile menu"
+                className="mobile-nav-backdrop md:hidden"
+                onClick={() => setMenuOpen(false)}
+              />
+              <div
+                className="mobile-nav-panel md:hidden"
               style={{
                 position: 'absolute',
                 top: '100%',
@@ -404,7 +404,8 @@ export default function HomePage() {
               <a href="#contact" className="btn-primary block text-center mt-4 text-sm" style={{ fontFamily: 'var(--font-body)' }} onClick={() => setMenuOpen(false)}>
                 Get Started Free
               </a>
-            </div>
+              </div>
+            </>
           )}
         </div>
       </header>
