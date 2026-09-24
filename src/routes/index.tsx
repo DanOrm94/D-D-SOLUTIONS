@@ -45,7 +45,7 @@ const NAV_LINKS = [
   { label: 'How It Works', href: '#process' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Our Work', href: '/our-work' },
-  { label: 'About', href: '#about' },
+  { label: 'Meet the Team', href: '/meet-the-team' },
   { label: 'Contact', href: '#contact' },
 ]
 
