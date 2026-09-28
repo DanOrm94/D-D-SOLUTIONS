@@ -32,6 +32,14 @@ const PROJECTS = [
     logo: null,
     tags: ['Website Design', 'Mobile Responsive', 'SEO Ready', 'Business Website'],
   },
+  {
+    name: 'TB Sweeps',
+    category: 'Shop Page Design & Development',
+    description: 'A dedicated online shop page created for the existing TB Sweeps website, extending the site with a clear, professional shopping experience while working within the existing website.',
+    url: 'https://tb-sweeps.com/shop.html',
+    logo: null,
+    tags: ['Shop Page', 'Existing Website', 'Web Design', 'E-commerce'],
+  },
 ]
 
 function ArrowUpRight() {
@@ -70,7 +78,7 @@ export default function OurWorkPage() {
             <div className="max-w-3xl">
               <span className="section-label"><span style={{ background: '#e8b84b', width: 24, height: 2, display: 'inline-block' }} />Recent work</span>
               <h1 className="font-display mt-5" style={{ fontSize: 'clamp(2.3rem, 5vw, 4rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.08 }}>Websites built for<br /><span style={{ color: '#4a82cc' }}>real businesses.</span></h1>
-              <p className="mt-6 leading-relaxed" style={{ color: '#4a82cc', fontSize: '1.08rem', maxWidth: '680px' }}>Take a look at a recent project built by DD Web Solutions. Every site is designed around the business, its customers, and the actions that matter most.</p>
+              <p className="mt-6 leading-relaxed" style={{ color: '#4a82cc', fontSize: '1.08rem', maxWidth: '680px' }}>Take a look at recent projects built or enhanced by DD Web Solutions. Every project is designed around the business, its customers, and the actions that matter most.</p>
             </div>
           </div>
         </section>
@@ -87,32 +95,21 @@ export default function OurWorkPage() {
                           {index === 0 ? 'Featured project' : 'Recent project'}
                         </div>
 
-                        {project.logo ? (
-                          <div className="mt-6 flex items-center justify-start">
-                            <img
-                              src={project.logo}
-                              alt={`${project.name} logo`}
-                              className="block w-auto max-w-[360px] h-auto max-h-32 sm:max-h-36 object-contain"
-                            />
+                        <div className="mt-8">
+                          <div className="font-display text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.05 }}>
+                            {project.name}
                           </div>
-                        ) : (
-                          <div className="mt-8">
-                            <div className="font-display text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.05 }}>
-                              {project.name}
-                            </div>
-                          </div>
-                        )}
+                        </div>
 
-                        {project.logo && (
-                          <h2 className="font-display mt-5 text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}>{project.name}</h2>
-                        )}
                         <p className="mt-3" style={{ color: 'rgba(255,255,255,0.72)' }}>{project.category}</p>
                       </div>
                     </div>
 
                     <div className="p-8 sm:p-12 flex flex-col justify-center">
                       <span className="section-label">The project</span>
-                      <h3 className="font-display mt-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.3rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}>Professional, clear and built to generate enquiries.</h3>
+                      <h3 className="font-display mt-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.3rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}>
+                        {project.name === 'TB Sweeps' ? 'A shop experience added to an existing website.' : 'Professional, clear and built to generate enquiries.'}
+                      </h3>
                       <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc', fontSize: '1rem' }}>{project.description}</p>
                       <div className="flex flex-wrap gap-2.5 mt-7">
                         {project.tags.map((tag) => (
