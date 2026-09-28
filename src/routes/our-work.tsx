@@ -21,7 +21,16 @@ const PROJECTS = [
     category: 'Chimney & Soot Removal Services',
     description: 'A professional website designed to give the business a stronger online presence, clearly present its services, and make it easier for potential customers to get in touch.',
     url: 'https://www.sootdestroyer.co.uk/',
+    logo: '/sootlogo.jpg',
     tags: ['Website Design', 'Mobile Responsive', 'SEO Ready', 'Enquiry Focused'],
+  },
+  {
+    name: 'SK Clad Solutions',
+    category: 'Cladding & Building Solutions',
+    description: 'A professional website created for SK Clad Solutions, giving the business a clear online presence and a straightforward way for potential customers to explore its services and get in touch.',
+    url: 'https://skcladsolutions.co.uk/',
+    logo: null,
+    tags: ['Website Design', 'Mobile Responsive', 'SEO Ready', 'Business Website'],
   },
 ]
 
@@ -69,22 +78,34 @@ export default function OurWorkPage() {
         <section className="py-24 bg-white">
           <div className="max-w-6xl mx-auto px-5 sm:px-8">
             <div className="grid grid-cols-1 gap-8">
-              {PROJECTS.map((project) => (
+              {PROJECTS.map((project, index) => (
                 <article key={project.name} className="rounded-2xl overflow-hidden" style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}>
                   <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="min-h-[320px] lg:min-h-[440px] p-10 sm:p-14 flex items-end" style={{ background: 'linear-gradient(160deg, #0f2347, #1e4a8a)' }}>
+                    <div className="min-h-[320px] lg:min-h-[440px] p-10 sm:p-14 flex items-end" style={{ background: index % 2 === 0 ? 'linear-gradient(160deg, #0f2347, #1e4a8a)' : 'linear-gradient(160deg, #12213b, #285b8f)' }}>
                       <div className="w-full">
-                        <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider" style={{ background: 'rgba(255,255,255,0.1)', color: '#e8b84b', border: '1px solid rgba(255,255,255,0.1)' }}>Featured project</div>
-
-                        <div className="mt-6 flex items-center justify-start">
-                          <img
-                            src="/sootlogo.jpg"
-                            alt="Soot Destroyer logo"
-                            className="block w-auto max-w-[360px] h-auto max-h-32 sm:max-h-36 object-contain"
-                          />
+                        <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider" style={{ background: 'rgba(255,255,255,0.1)', color: '#e8b84b', border: '1px solid rgba(255,255,255,0.1)' }}>
+                          {index === 0 ? 'Featured project' : 'Recent project'}
                         </div>
 
-                        <h2 className="font-display mt-5 text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}>{project.name}</h2>
+                        {project.logo ? (
+                          <div className="mt-6 flex items-center justify-start">
+                            <img
+                              src={project.logo}
+                              alt={`${project.name} logo`}
+                              className="block w-auto max-w-[360px] h-auto max-h-32 sm:max-h-36 object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="mt-8">
+                            <div className="font-display text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.05 }}>
+                              {project.name}
+                            </div>
+                          </div>
+                        )}
+
+                        {project.logo && (
+                          <h2 className="font-display mt-5 text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.1 }}>{project.name}</h2>
+                        )}
                         <p className="mt-3" style={{ color: 'rgba(255,255,255,0.72)' }}>{project.category}</p>
                       </div>
                     </div>
