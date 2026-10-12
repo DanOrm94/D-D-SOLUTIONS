@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
+import Header, { NAV_LINKS } from '../components/Header'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -30,6 +31,19 @@ export const Route = createFileRoute('/')({
         property: 'og:type',
         content: 'website',
       },
+      {
+        property: 'og:url',
+        content: 'https://ddwebsolution.com/',
+      },
+      {
+        property: 'og:image',
+        content: 'https://ddwebsolution.com/logo.png',
+      },
+      // JSON-LD structured data. TanStack serialises and HTML-escapes this
+      // into a <script type="application/ld+json"> tag in the document head.
+      {
+        'script:ld+json': LOCAL_BUSINESS_JSONLD,
+      },
     ],
     links: [
       {
@@ -40,14 +54,58 @@ export const Route = createFileRoute('/')({
   }),
 })
 
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'How It Works', href: '#process' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Our Work', href: '/our-work' },
-  { label: 'Meet the Team', href: '/meet-the-team' },
-  { label: 'Contact', href: '#contact' },
-]
+// Structured data so search engines understand DD Web Solutions as a local
+// business and can surface rich results (ratings, services, contact details).
+const LOCAL_BUSINESS_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://ddwebsolution.com/#business',
+  name: 'DD Web Solutions',
+  description:
+    'Professional web design, local SEO and ongoing website support for UK small businesses.',
+  url: 'https://ddwebsolution.com/',
+  image: 'https://ddwebsolution.com/logo.png',
+  logo: 'https://ddwebsolution.com/logo.png',
+  email: 'ddwebsolutions@hotmail.com',
+  telephone: '+447923034016',
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  priceRange: '££',
+  serviceType: [
+    'Website Design',
+    'Local SEO',
+    'Website Maintenance',
+    'E-commerce',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '3',
+    bestRating: '5',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Chris Cox' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody:
+        'Before DD built our site, we were invisible online. Now we get 3-4 new enquiries every week directly through the website.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Danny Marshall' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody:
+        'I was nervous about the tech side but they made it so easy. The monthly fee means I never have to worry about the site.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Aatif' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody:
+        'Our old site looked like it was from 2009. The new one actually reflects the quality of our work.',
+    },
+  ],
+}
 
 const SERVICES = [
   {
@@ -316,99 +374,10 @@ function ContactForm() {
 }
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <div style={{ fontFamily: 'var(--font-body)' }}>
       {/* ── NAVIGATION ── */}
-      <header
-        className="fixed top-0 left-0 right-0 z-50"
-        style={{ background: 'rgba(10,22,40,0.96)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
-      >
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <a href="#" className="flex items-center no-underline">
-              <img src="logo.png" alt="DD Web Solutions" className="h-10 sm:h-12 w-auto object-contain" />
-            </a>
-
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-2" aria-label="Primary navigation">
-              {NAV_LINKS.map(link => (
-                <a key={link.label} href={link.href} className="nav-link premium-nav-link">
-                  <span className="premium-nav-link__label">{link.label}</span>
-                </a>
-              ))}
-            </nav>
-
-            {/* CTA + mobile toggle */}
-            <div className="flex items-center gap-3">
-              <a href="#contact" className="btn-primary hidden sm:inline-flex items-center text-sm px-5 py-2.5" style={{ fontFamily: 'var(--font-body)' }}>
-                Get Started
-              </a>
-              <button
-                className="md:hidden text-white p-1"
-                onClick={() => setMenuOpen(o => !o)}
-                aria-label="Toggle menu"
-                aria-expanded={menuOpen}
-              >
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                  {menuOpen ? (
-                    <path d="M4 4l14 14M18 4L4 18" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-                  ) : (
-                    <>
-                      <path d="M3 6h16M3 11h16M3 16h16" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-                    </>
-                  )}
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile menu */}
-          {menuOpen && (
-            <>
-              <button
-                aria-label="Close mobile menu"
-                className="mobile-nav-backdrop md:hidden"
-                onClick={() => setMenuOpen(false)}
-              />
-              <div
-                className="mobile-nav-panel md:hidden"
-              style={{
-                position: 'absolute',
-                top: '100%',
-                left: 0,
-                right: 0,
-                width: '100%',
-                background: '#060f20',
-                color: '#ffffff',
-                borderTop: '1px solid rgba(255,255,255,0.12)',
-                borderBottom: '1px solid rgba(255,255,255,0.12)',
-                boxShadow: '0 24px 48px rgba(0,0,0,0.5)',
-                zIndex: 9999,
-              }}
-            >
-              <nav aria-label="Mobile navigation" className="mobile-nav-links">
-                {NAV_LINKS.map(link => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="nav-link premium-nav-link text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <span className="premium-nav-link__label">{link.label}</span>
-                  </a>
-                ))}
-              </nav>
-              <a href="#contact" className="btn-primary block text-center mt-4 text-sm" style={{ fontFamily: 'var(--font-body)' }} onClick={() => setMenuOpen(false)}>
-                Get Started Free
-              </a>
-              </div>
-            </>
-          )}
-        </div>
-      </header>
+      <Header />
 
       {/* ── HERO ── */}
       <section className="hero-bg geo-pattern relative overflow-hidden min-h-screen flex items-center pt-16">
@@ -1238,7 +1207,7 @@ export default function HomePage() {
                 <p className="text-xs mb-2" style={{ color: 'rgba(255,255,255,0.42)' }}>
                   Like DD Web Solutions? Add us as a preferred source on Google.
                 </p>
-                <div google-add-preferred-source-btn data-theme="dark"></div>
+                <div google-add-preferred-source-btn="true" data-theme="dark"></div>
               </div>
             </div>
           </div>

@@ -1,51 +1,24 @@
 # AGENTS.md
 
-This document provides an overview of the D&D Digital Solutions project for developers and AI agents.
+This document describes the DD Web Solutions project for developers and AI agents working on this codebase.
 
 ## Project Overview
 
-A single-page marketing website for D&D Digital Solutions — a web design service targeting local small businesses. The site presents services, pricing tiers, a 4-step process, testimonials, and a contact form. Built with TanStack Start and deployed on Netlify.
+A marketing website for DD Web Solutions — a web design service targeting local UK small businesses. The site presents services, pricing tiers, a 4-step process, testimonials, a "who we work with" grid, and a contact form. It also has an Our Work portfolio page and a Meet the Team page.
 
-All content lives in `src/routes/index.tsx`. Navigation is anchor-link based (no sub-routes). The contact form is currently client-side only; to make it persistent, integrate Netlify Forms (see `.agents/skills/netlify-forms-tanstack/SKILL.md`).
+Built with TanStack Start (React) and deployed on Netlify. The contact form submits to [Web3Forms](https://web3forms.com) directly from the client.
 
-## Color Palette
-
-| CSS token | Hex | Use |
-|---|---|---|
-| `navy-900` | `#0a1628` | Hero bg, primary dark text |
-| `navy-600` | `#1e4a8a` | Cards, buttons, accents |
-| `navy-400` | `#4a82cc` | Body text on light bg |
-| `navy-100` | `#e0ecf9` | Light section backgrounds |
-| `gold-400` | `#e8b84b` | CTA buttons, stars, highlights |
-
-## Section IDs (anchor links)
-
-`#services` · `#process` · `#pricing` · `#about` · `#contact`
-
-## Editable Data
-
-All copy and pricing live as constants at the top of `src/routes/index.tsx`:
-- `SERVICES` — 6 service cards
-- `STEPS` — 4-step process
-- `TESTIMONIALS` — 3 client quotes
-- `WHY_ITEMS` — 4 differentiator stats
-- Three inline pricing plan objects inside the pricing section JSX
-
----
-
-
-### Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|------------|
 | Framework | TanStack Start |
-| Frontend | React 19, TanStack Router v1 |
+| Frontend | React 19, TanStack Router v1 (file-based routing) |
 | Build | Vite 7 |
-| Styling | Tailwind CSS 4 |
-| UI Components | Radix UI + custom components |
-| Content | Content Collections (type-safe markdown) |
-| AI | TanStack AI with multi-provider support |
-| Language | TypeScript 5.7 (strict mode) |
+| Styling | Tailwind CSS 4 + CSS custom properties in `src/styles.css` |
+| Animation | GSAP (service-card entrance/hover via `BounceCards`) |
+| Fonts | Playfair Display (display) + DM Sans (body), via Google Fonts |
+| Language | TypeScript 5.9 |
 | Deployment | Netlify |
 
 ## Directory Structure
@@ -53,122 +26,85 @@ All copy and pricing live as constants at the top of `src/routes/index.tsx`:
 ```
 ├── public
 │   ├── favicon.ico
-│   ├── logo.png
-│   ├── tanstack-circle-logo.png
-│   └── tanstack-word-logo-white.svg  # TanStack wordmark logo (white) used in header/nav.
+│   ├── logo.png / logo.jpg
+│   ├── ddpic.jpg / sootlogo.jpg
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src
 │   ├── components
-│   │   ├── Header.tsx  # Header.
-│   │   ├── HeaderNav.tsx  # Navigation sidebar template: mobile menu, Home link, add-on routes; EJS-driven for dynamic route generation.
-│   │   ├── ProductAIAssistant.tsx  # AI marketing assistant.
-│   │   └── ProductRecommendation.tsx  # Product recommendation card.
-│   ├── data
-│   │   └── products.ts  # Product catalog data template.
-│   ├── lib
-│   │   ├── product-ai-hook.ts  # useProductChat hook.
-│   │   └── product-tools.ts  # AI tools: getProducts, recommendProduct.
+│   │   ├── BounceCards.tsx   # GSAP entrance + hover animation for .service-card
+│   │   └── BounceCards.css
 │   ├── routes
-│   │   ├── products
-│   │   │   └── $productId.tsx  # Product detail page with recommendation.
-│   │   ├── __root.tsx  # Root layout: Header, styles.
-│   │   ├── api.product-chat.ts  # POST handler for product AI chat.
-│   │   └── index.tsx  # Marketing home with ProductAIAssistant.
-│   ├── store
-│   │   └── product-assistant.ts  # Zustand store for assistant state.
-│   ├── router.tsx  # TanStack Router setup: creates router from generated routeTree with scroll restoration.
-│   └── styles.css  # Global styles.
-├── .gitignore  # Template for .gitignore: node_modules, dist, .env, .netlify, .tanstack, etc.
-├── AGENTS.md  # This document provides an overview of the project structure for developers and AI agents working on this codebase.
-├── netlify.toml  # Netlify deployment config: build command (vite build), publish directory (dist/client), and dev server settings (port 8888, target 3000).
-├── package.json  # Project manifest with TanStack Start, React 19, Vite 7, Tailwind CSS 4, and Netlify plugin dependencies; defines dev and build scripts.
-├── pnpm-lock.yaml
-├── tsconfig.json  # TypeScript config: ES2022 target, strict mode, @/* path alias for src/*, bundler module resolution.
-└── vite.config.ts  # Vite config template: TanStack Start, React, Tailwind, Netlify plugin, and optional add-on integrations; processed by EJS.
+│   │   ├── __root.tsx        # Root HTML shell: head/meta, fonts, BounceCards
+│   │   ├── index.tsx         # Home page (all homepage content + ContactForm)
+│   │   ├── our-work.tsx      # Portfolio page (/our-work)
+│   │   └── meet-the-team.tsx # Team page (/meet-the-team)
+│   ├── routeTree.gen.ts      # Generated by TanStack Router (do not edit)
+│   ├── router.tsx            # Router setup with scroll restoration
+│   └── styles.css            # Tailwind import + theme tokens + component CSS
+├── netlify.toml              # Netlify build/dev config
+├── vite.config.ts            # Vite plugins: tsconfig-paths, Tailwind, Netlify, TanStack Start, React
+├── tsconfig.json
+└── package.json
 ```
 
-## Key Concepts
+## Routing
 
-### File-Based Routing (TanStack Router)
+File-based via TanStack Router:
+- `__root.tsx` — root layout wrapping all pages
+- `index.tsx` — `/`
+- `our-work.tsx` — `/our-work`
+- `meet-the-team.tsx` — `/meet-the-team`
 
-Routes are defined by files in `src/routes/`:
+Homepage sections are reached by anchor links: `#services`, `#process`, `#pricing`, `#about`, `#contact`.
 
-- `__root.tsx` - Root layout wrapping all pages
-- `index.tsx` - Route for `/`
-- `api.*.ts` - Server API endpoints (e.g., `api.resume-chat.ts` → `/api/resume-chat`)
+## Editable Content
 
-### Component Architecture
+Most homepage copy lives as constants at the top of `src/routes/index.tsx`:
+- `NAV_LINKS` — navigation items
+- `SERVICES` — service cards
+- `STEPS` — 4-step process (also duplicated inline in the "How It Works" section)
+- `TESTIMONIALS` — client quotes
+- `WHY_ITEMS` — differentiator stats
+- The three pricing plan objects live inline in the pricing section JSX
 
-**UI Primitives** (`src/components/ui/`):
-- Radix UI-based, Tailwind-styled
-- Card, Badge, Checkbox, Separator, HoverCard
+Portfolio projects live in the `PROJECTS` array in `src/routes/our-work.tsx`.
 
-**Feature Components** (`src/components/`):
-- Header, HeaderNav, ResumeAssistant
+## Contact Form
 
-## Configuration Files
+The `ContactForm` component in `src/routes/index.tsx` posts to the Web3Forms API with a public access key. The business receives submissions by email. There is no server-side function; keep spam protection (Web3Forms built-in) in mind if abuse appears.
 
-| File | Purpose |
-|------|---------|
-| `vite.config.ts` | Vite plugins: TanStack Start, Netlify, Tailwind, Content Collections |
-| `tsconfig.json` | TypeScript config with `@/*` path alias for `src/*` |
-| `netlify.toml` | Build command, output directory, dev server settings |
-| `content-collections.ts` | Zod schemas for jobs and education frontmatter |
-| `styles.css` | Tailwind imports + CSS custom properties (oklch colors) |
+## Color Palette
+
+Theme tokens are defined in `src/styles.css` under `@theme`:
+
+| Token | Hex | Use |
+|---|---|---|
+| `navy-950` | `#060f20` | Footer background |
+| `navy-900` | `#0a1628` | Hero bg, primary dark text |
+| `navy-800` | `#0f2347` | Gradients |
+| `navy-600` | `#1e4a8a` | Cards, buttons, accents |
+| `navy-400` | `#4a82cc` | Body text on light bg |
+| `navy-300` | `#7aaada` | Muted helper text |
+| `navy-100` | `#e0ecf9` | Light section backgrounds |
+| `navy-50` | `#f0f7ff` | Light section backgrounds |
+| `gold-400` | `#e8b84b` | CTA buttons, stars, highlights |
+
+Note: much of the current markup uses inline `style={{}}` with hardcoded hex values rather than these tokens. New work should prefer the tokens / Tailwind utilities where practical.
 
 ## Development Commands
 
 ```bash
-npm run dev      # Start dev server
-npm run build    # Production build
-npm run preview  # Preview production build
+npm install
+npm run dev      # Vite dev server on http://localhost:3000
+npm run build    # Production build to dist/client
+
+# Full Netlify emulation (edge functions, forms, etc.)
+netlify dev --port 8889
 ```
 
 ## Conventions
 
-### Naming
-- Components: PascalCase
-- Utilities/hooks: camelCase
-- Routes: kebab-case files
-
-### Styling
-- Tailwind CSS utility classes
-- `cn()` helper for conditional class merging
-- CSS variables for theme tokens in `styles.css`
-
-### TypeScript
-- Strict mode enabled
-- Import paths use `@/` alias
-- Zod for runtime validation
-- Type-only imports with `type` keyword
-
-### State Management
-- React hooks for local state
-- Zustand if you need it for global state
-### Marketing Site with AI Assistant
-
-Marketing site with TanStack AI chat assistant. No Stripe checkout.
-
-**AI tools available:**
-- `getProducts` - Get all products from catalog
-- `recommendProduct` - Display product recommendation card (MUST use for recommendations)
-
-**Components:** ProductAIAssistant, ProductRecommendation
-
-**Dependencies:** @tanstack/ai, streamdown
-
-## Environment Variables
-
-For AI: ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY, or OLLAMA_BASE_URL (same as ai add-on).
-
-## Application Name
-
-This starter uses "Application Name" as a placeholder throughout the UI and metadata. Replace it with the user's desired application name in the following locations:
-
-### UI Components
-- `src/components/Header.tsx` — app name displayed in the header
-- `src/components/HeaderNav.tsx` — app name in the mobile navigation header
-
-### SEO Metadata
-- `src/routes/__root.tsx` — the `title` field in the `head()` configuration
-
-Search for all occurrences of "Application Name" in the `src/` directory and replace with the user's application name.
+- Components: PascalCase. Route files: kebab-case.
+- TypeScript strict mode.
+- Tailwind utility classes + CSS variables for theme tokens.
