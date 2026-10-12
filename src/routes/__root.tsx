@@ -13,6 +13,14 @@ export const Route = createRootRoute({
         content:
           'Professional websites for local small businesses. One-time setup fee, low monthly maintenance. DD Web Solutions.',
       },
+      // Site-wide Open Graph / Twitter defaults. Individual routes override
+      // og:title / og:description / og:url where appropriate.
+      { property: 'og:site_name', content: 'DD Web Solutions' },
+      { property: 'og:locale', content: 'en_GB' },
+      { property: 'og:image', content: 'https://ddwebsolution.com/logo.png' },
+      { property: 'og:image:alt', content: 'DD Web Solutions' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: 'https://ddwebsolution.com/logo.png' },
     ],
     links: [
       {

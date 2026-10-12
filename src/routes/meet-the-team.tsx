@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import Header from '../components/Header'
 
 export const Route = createFileRoute('/meet-the-team')({
   component: MeetTheTeamPage,
@@ -14,6 +15,8 @@ export const Route = createFileRoute('/meet-the-team')({
       { property: 'og:title', content: 'Meet the Team | DD Web Solutions' },
       { property: 'og:description', content: 'Two people. Two skill sets. One goal — helping your business stand out.' },
       { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://ddwebsolution.com/meet-the-team' },
+      { property: 'og:image', content: 'https://ddwebsolution.com/ddpic.jpg' },
     ],
     links: [{ rel: 'canonical', href: 'https://ddwebsolution.com/meet-the-team' }],
   }),
@@ -28,32 +31,7 @@ const SERVICES = [
 export default function MeetTheTeamPage() {
   return (
     <div style={{ fontFamily: 'var(--font-body)', color: '#0a1628' }}>
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'rgba(6,15,32,0.9)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="flex items-center justify-between h-[74px] md:h-[86px]">
-            <a href="/" className="flex items-center no-underline" aria-label="DD Web Solutions home">
-              <img src="/logo.png" alt="DD Web Solutions" className="h-10 sm:h-12 w-auto object-contain" />
-            </a>
-            <nav className="hidden md:flex items-center gap-2" aria-label="Primary navigation">
-              {[
-                ['Home', '/'],
-                ['Services', '/#services'],
-                ['Our Work', '/our-work'],
-                ['Pricing', '/#pricing'],
-                ['Meet the Team', '/meet-the-team'],
-                ['Contact', '/#contact'],
-              ].map(([label, href]) => (
-                <a key={label} href={href} className="nav-link premium-nav-link">
-                  <span className="premium-nav-link__label">{label}</span>
-                </a>
-              ))}
-            </nav>
-            <a href="/#contact" className="btn-primary hidden sm:inline-flex items-center text-sm px-5 py-2.5" style={{ fontFamily: 'var(--font-body)', textDecoration: 'none' }}>
-              Get Started
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main>
         <section className="pt-36 md:pt-44 pb-20 md:pb-28" style={{ background: 'radial-gradient(circle at 82% 20%, rgba(37,99,176,0.13), transparent 32%), linear-gradient(180deg, #f0f7ff 0%, #f8fbff 58%, #ffffff 100%)' }}>

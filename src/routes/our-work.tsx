@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import Header from '../components/Header'
 
 export const Route = createFileRoute('/our-work')({
   component: OurWorkPage,
@@ -10,6 +11,8 @@ export const Route = createFileRoute('/our-work')({
       { property: 'og:title', content: 'Our Work | DD Web Solutions' },
       { property: 'og:description', content: 'Recent websites designed and built by DD Web Solutions for local UK businesses.' },
       { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://ddwebsolution.com/our-work' },
+      { property: 'og:image', content: 'https://ddwebsolution.com/logo.png' },
     ],
     links: [{ rel: 'canonical', href: 'https://ddwebsolution.com/our-work' }],
   }),
@@ -53,24 +56,7 @@ function ArrowUpRight() {
 export default function OurWorkPage() {
   return (
     <div style={{ fontFamily: 'var(--font-body)', color: '#0a1628' }}>
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'rgba(10,22,40,0.96)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="flex items-center justify-between h-16">
-            <a href="/" className="flex items-center no-underline" aria-label="DD Web Solutions home">
-              <img src="/logo.png" alt="DD Web Solutions" className="h-10 sm:h-12 w-auto object-contain" />
-            </a>
-            <nav className="hidden md:flex items-center gap-2" aria-label="Primary navigation">
-              <a href="/" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Home</span></a>
-              <a href="/#services" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Services</span></a>
-              <a href="/our-work" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Our Work</span></a>
-              <a href="/#pricing" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Pricing</span></a>
-              <a href="/meet-the-team" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Meet the Team</span></a>
-              <a href="/#contact" className="nav-link premium-nav-link"><span className="premium-nav-link__label">Contact</span></a>
-            </nav>
-            <a href="/#contact" className="btn-primary hidden sm:inline-flex items-center text-sm px-5 py-2.5" style={{ fontFamily: 'var(--font-body)' }}>Get Started</a>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main>
         <section className="pt-36 pb-20" style={{ background: 'linear-gradient(180deg, #f0f7ff 0%, #f8fbff 55%, #ffffff 100%)' }}>
