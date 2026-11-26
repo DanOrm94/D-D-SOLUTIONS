@@ -51,7 +51,7 @@ const PROJECTS = [
     category: 'Civil Engineering & Groundworks',
     description: 'A professional website for an Oldham-based highways, motorway and deep drainage contractor, presenting its services and case studies clearly and making it easy for contractors and developers to request a quote.',
     headline: 'A credible, service-led website for a highways and civils contractor.',
-    url: 'https://charlton-civils.pages.dev/',
+    url: 'https://charltoncivils.co.uk/',
     tags: ['Website Design', 'Mobile Responsive', 'Case Studies', 'Quote Focused'],
   },
   {
