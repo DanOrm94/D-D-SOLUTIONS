@@ -20,7 +20,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 body { margin: 0; font-family: var(--font-body); background-color: #fafcff; color: var(--color-navy-900); line-height: 1.65; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 p { line-height: 1.75; }
 .font-display { font-family: var(--font-display); }
@@ -60,7 +60,7 @@ p { line-height: 1.75; }
 .step-connector { position:absolute; top:2.25rem; left:calc(50% + 2.25rem); width:calc(100% - 4.5rem); height:2px; background:linear-gradient(90deg,#2563b0,#7aaada); }
 .form-input { width:100%; padding:.875rem 1rem; border:1px solid #d8e4f2; border-radius:10px; font-family:var(--font-body); font-size:.95rem; color:#0a1628; background:white; transition:border-color .2s ease, box-shadow .2s ease; outline:none; }
 .form-input:focus { border-color:#2563b0; box-shadow:0 0 0 3px rgba(37,99,176,.12); }
-.form-input::placeholder { color:#7aaada; }
+.form-input::placeholder { color:#6b829f; }
 textarea.form-input { resize:vertical; min-height:120px; }
 
 /* Premium header treatment */

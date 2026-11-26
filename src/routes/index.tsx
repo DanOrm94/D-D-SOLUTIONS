@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
-import Header, { NAV_LINKS } from '../components/Header'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -51,58 +52,39 @@ export const Route = createFileRoute('/')({
         href: 'https://ddwebsolution.com/',
       },
     ],
+    scripts: [{ src: 'https://news.google.com/swg/js/v1/publisher.js', async: true }],
   }),
 })
 
-// Structured data so search engines understand DD Web Solutions as a local
-// business and can surface rich results (ratings, services, contact details).
+// Structured data so search engines understand DD Web Solutions as a business.
+// Self-published review/rating markup is deliberately omitted: Google's
+// guidelines don't allow it for a business's own site.
 const LOCAL_BUSINESS_JSONLD = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': 'https://ddwebsolution.com/#business',
-  name: 'DD Web Solutions',
-  description:
-    'Professional web design, local SEO and ongoing website support for UK small businesses.',
-  url: 'https://ddwebsolution.com/',
-  image: 'https://ddwebsolution.com/logo.png',
-  logo: 'https://ddwebsolution.com/logo.png',
-  email: 'ddwebsolutions@hotmail.com',
-  telephone: '+447923034016',
-  areaServed: { '@type': 'Country', name: 'United Kingdom' },
-  priceRange: '££',
-  serviceType: [
-    'Website Design',
-    'Local SEO',
-    'Website Maintenance',
-    'E-commerce',
-  ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '3',
-    bestRating: '5',
-  },
-  review: [
+  '@graph': [
     {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Chris Cox' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody:
-        'Before DD built our site, we were invisible online. Now we get 3-4 new enquiries every week directly through the website.',
+      '@type': 'WebSite',
+      '@id': 'https://ddwebsolution.com/#website',
+      url: 'https://ddwebsolution.com/',
+      name: 'DD Web Solutions',
+      inLanguage: 'en-GB',
+      publisher: { '@id': 'https://ddwebsolution.com/#business' },
     },
     {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Danny Marshall' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody:
-        'I was nervous about the tech side but they made it so easy. The monthly fee means I never have to worry about the site.',
-    },
-    {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: 'Aatif' },
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody:
-        'Our old site looked like it was from 2009. The new one actually reflects the quality of our work.',
+      '@type': 'ProfessionalService',
+      '@id': 'https://ddwebsolution.com/#business',
+      name: 'DD Web Solutions',
+      description:
+        'Professional web design, local SEO and ongoing website support for UK small businesses.',
+      url: 'https://ddwebsolution.com/',
+      image: 'https://ddwebsolution.com/logo.png',
+      logo: 'https://ddwebsolution.com/logo.png',
+      email: 'ddwebsolutions@hotmail.com',
+      telephone: '+447923034016',
+      areaServed: { '@type': 'Country', name: 'United Kingdom' },
+      priceRange: '££',
+      serviceType: ['Website Design', 'Local SEO', 'Website Maintenance', 'E-commerce'],
+      // TODO: add address / areaServed towns and sameAs (Google Business Profile, socials) once confirmed.
     },
   ],
 }
@@ -110,7 +92,7 @@ const LOCAL_BUSINESS_JSONLD = {
 const SERVICES = [
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <rect x="2" y="4" width="24" height="17" rx="2" stroke="currentColor" strokeWidth="1.8" fill="none"/>
         <path d="M9 21v3M19 21v3M6 24h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
         <path d="M6 9h16M6 13h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -122,7 +104,7 @@ const SERVICES = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <circle cx="14" cy="14" r="11" stroke="currentColor" strokeWidth="1.8"/>
         <path d="M14 3C14 3 9 8 9 14s5 11 5 11" stroke="currentColor" strokeWidth="1.5"/>
         <path d="M14 3c0 0 5 5 5 11s-5 11-5 11" stroke="currentColor" strokeWidth="1.5"/>
@@ -132,11 +114,11 @@ const SERVICES = [
     ),
     title: 'Mobile-Responsive Layout',
     description:
-      'Every site we build looks great on phones, tablets, and desktops. Over 60% of your customers are searching on mobile — we make sure you show up right.',
+      'Every site we build looks great on phones, tablets, and desktops, so customers can find you and get in touch whichever device they use.',
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <path d="M14 3L4 7v8c0 5.5 4.3 10.1 10 11 5.7-.9 10-5.5 10-11V7L14 3z" stroke="currentColor" strokeWidth="1.8" fill="none"/>
         <path d="M9 14l3 3 7-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
@@ -147,7 +129,7 @@ const SERVICES = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <path d="M14 2l3.5 7 7.5 1-5.5 5.3 1.3 7.7L14 20l-6.8 3 1.3-7.7L3 10l7.5-1L14 2z" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinejoin="round"/>
       </svg>
     ),
@@ -157,7 +139,7 @@ const SERVICES = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <rect x="3" y="8" width="22" height="14" rx="2" stroke="currentColor" strokeWidth="1.8" fill="none"/>
         <path d="M8 8V6a6 6 0 0112 0v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
         <circle cx="14" cy="15" r="2" stroke="currentColor" strokeWidth="1.5"/>
@@ -170,7 +152,7 @@ const SERVICES = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <path d="M4 20l6-6 4 4 4-5 6 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M4 4v20h20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
       </svg>
@@ -178,33 +160,6 @@ const SERVICES = [
     title: 'Monthly Reporting',
     description:
       'Know how your website is performing. Monthly maintenance subscribers get a plain-English report showing visitors, popular pages, and search terms.',
-  },
-]
-
-const STEPS = [
-  {
-    number: '01',
-    title: 'Free Discovery Call',
-    description:
-      "We learn about your business, your customers, and what you need from your website. No obligation, no jargon.",
-  },
-  {
-    number: '02',
-    title: 'Design & Build',
-    description:
-      "We design a site tailored to your brand. You review, request tweaks, and approve before anything goes live.",
-  },
-  {
-    number: '03',
-    title: 'Launch Day',
-    description:
-      "Your website goes live. We handle domain connection, hosting, and all the technical bits so you don't have to.",
-  },
-  {
-    number: '04',
-    title: 'Ongoing Care',
-    description:
-      "Sit back while we handle updates, security patches, and backups every month. Your site stays fast and fresh.",
   },
 ]
 
@@ -249,9 +204,9 @@ const WHY_ITEMS = [
     detail: 'Your domain, your content, your data. If you ever want to move on, we hand everything over cleanly.',
   },
   {
-    stat: '5-star',
-    label: 'Client satisfaction',
-    detail: 'Every client who has launched with us would recommend DD to another local business owner.',
+    stat: 'Upfront',
+    label: 'Clear pricing',
+    detail: 'Setup and monthly costs are shown before you commit, so there are no surprises after launch.',
   },
 ]
 
@@ -263,6 +218,7 @@ function ContactForm() {
     phone: '',
     message: '',
   })
+  const [botcheck, setBotcheck] = useState(false)
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -287,6 +243,7 @@ function ContactForm() {
         email: form.email,
         phone: form.phone,
         message: form.message,
+        botcheck,
       }
 
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -318,7 +275,7 @@ function ContactForm() {
 
   if (status === 'sent') {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-12" role="status" aria-live="polite">
         <div className="w-16 h-16 rounded-full bg-navy-100 flex items-center justify-center mx-auto mb-4">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="14" fill="#1e4a8a" />
@@ -333,35 +290,36 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input type="checkbox" name="botcheck" checked={botcheck} onChange={(e) => setBotcheck(e.target.checked)} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-500 text-navy-700 mb-1.5">Your name</label>
-          <input id="name" className="form-input" name="name" value={form.name} onChange={handleChange} placeholder="Jane Smith" required />
+          <label htmlFor="name" className="block text-sm font-medium text-navy-700 mb-1.5">Your name</label>
+          <input id="name" className="form-input" name="name" autoComplete="name" value={form.name} onChange={handleChange} placeholder="Jane Smith" required />
         </div>
         <div>
-          <label htmlFor="business" className="block text-sm font-500 text-navy-700 mb-1.5">Business name</label>
-          <input id="business" className="form-input" name="business" value={form.business} onChange={handleChange} placeholder="Smith's Café" required />
+          <label htmlFor="business" className="block text-sm font-medium text-navy-700 mb-1.5">Business name</label>
+          <input id="business" className="form-input" name="business" autoComplete="organization" value={form.business} onChange={handleChange} placeholder="Smith's Café" required />
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="email" className="block text-sm font-500 text-navy-700 mb-1.5">Email address</label>
-          <input id="email" className="form-input" name="email" type="email" value={form.email} onChange={handleChange} placeholder="jane@smithscafe.com" required />
+          <label htmlFor="email" className="block text-sm font-medium text-navy-700 mb-1.5">Email address</label>
+          <input id="email" className="form-input" name="email" type="email" autoComplete="email" value={form.email} onChange={handleChange} placeholder="jane@smithscafe.com" required />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-500 text-navy-700 mb-1.5">Phone (optional)</label>
-          <input id="phone" className="form-input" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="07923034016" />
+          <label htmlFor="phone" className="block text-sm font-medium text-navy-700 mb-1.5">Phone (optional)</label>
+          <input id="phone" className="form-input" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={handleChange} placeholder="07923034016" />
         </div>
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-500 text-navy-700 mb-1.5">Tell us about your business</label>
+        <label htmlFor="message" className="block text-sm font-medium text-navy-700 mb-1.5">Tell us about your business</label>
         <textarea id="message" className="form-input" name="message" value={form.message} onChange={handleChange} placeholder="What does your business do? Do you have an existing website? What are you hoping a website will help with?" required />
       </div>
 
       {status === 'error' && (
-        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">{errorMsg}</p>
+        <p role="alert" className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">{errorMsg}</p>
       )}
 
       <button type="submit" className="btn-primary w-full text-base" style={{ fontFamily: 'var(--font-body)' }} disabled={status === 'sending'}>
@@ -517,7 +475,7 @@ export default function HomePage() {
                 >
                   Professional, clear and built to generate enquiries.
                 </h3>
-                <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc' }}>
+                <p className="mt-5 leading-relaxed" style={{ color: '#35659f' }}>
                   A professional website designed to give Soot Destroyer a stronger online presence, clearly present its services, and make it easier for potential customers to get in touch.
                 </p>
 
@@ -637,7 +595,7 @@ export default function HomePage() {
                 description:
                   'We learn about your business, your customers, and what you need from your website. No obligation, no jargon.',
                 icon: (
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m2.1-5.4a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
                   </svg>
                 ),
@@ -647,7 +605,7 @@ export default function HomePage() {
                 description:
                   'We design a site tailored to your brand. You review, request tweaks, and approve before anything goes live.',
                 icon: (
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 20h9" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 3.5a2.12 2.12 0 013 3L8 18l-4 1 1-4L16.5 3.5z" />
                   </svg>
@@ -658,7 +616,7 @@ export default function HomePage() {
                 description:
                   "Your website goes live. We handle domain connection, hosting, and all the technical bits so you don't have to.",
                 icon: (
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 6l6 6-6 6" />
                   </svg>
@@ -669,7 +627,7 @@ export default function HomePage() {
                 description:
                   'Sit back while we handle updates, security, backups and ongoing improvements. Your site stays secure, fast and up to date.',
                 icon: (
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42" />
                     <circle cx="12" cy="12" r="4" />
                   </svg>
@@ -726,7 +684,7 @@ export default function HomePage() {
               <br />
               <span style={{ color: '#4a82cc' }}>Websites built to grow.</span>
             </h2>
-            <p style={{ color: '#4a82cc', marginTop: '1rem', fontSize: '1rem' }}>
+            <p style={{ color: '#35659f', marginTop: '1rem', fontSize: '1rem' }}>
               Choose the level of support your business needs. Every plan starts with a professionally built website and clear, upfront pricing.
             </p>
           </div>
@@ -738,19 +696,19 @@ export default function HomePage() {
               style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
             >
               <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>
+                <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#35659f', letterSpacing: '0.1em' }}>
                   Starter
                 </p>
-                <p className="text-sm mb-4" style={{ color: '#4a82cc' }}>
+                <p className="text-sm mb-4" style={{ color: '#35659f' }}>
                   Get your business online professionally.
                 </p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£599</span>
-                  <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
+                  <span className="font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£599</span>
+                  <span className="text-sm pb-1" style={{ color: '#4f6f95' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
                   <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>£29</span>
-                  <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
+                  <span className="text-sm" style={{ color: '#4f6f95' }}>/month</span>
                 </div>
               </div>
               <ul className="space-y-3 mb-8">
@@ -793,14 +751,14 @@ export default function HomePage() {
                 Most Popular
               </div>
               <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#7aaada', letterSpacing: '0.1em' }}>
+                <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#7aaada', letterSpacing: '0.1em' }}>
                   Professional
                 </p>
                 <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   Turn your website into a lead generator.
                 </p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: 'white', lineHeight: 1 }}>£899</span>
+                  <span className="font-bold" style={{ fontSize: '2.8rem', color: 'white', lineHeight: 1 }}>£899</span>
                   <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
@@ -843,19 +801,19 @@ export default function HomePage() {
               style={{ border: '1.5px solid #e0ecf9', background: 'white' }}
             >
               <div className="mb-6">
-                <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>
+                <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#35659f', letterSpacing: '0.1em' }}>
                   Growth
                 </p>
-                <p className="text-sm mb-4" style={{ color: '#4a82cc' }}>
+                <p className="text-sm mb-4" style={{ color: '#35659f' }}>
                   For businesses ready to invest in growth.
                 </p>
                 <div className="flex items-end gap-1">
-                  <span className="font-semibold font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£1,499</span>
-                  <span className="text-sm pb-1" style={{ color: '#7aaada' }}>setup</span>
+                  <span className="font-bold" style={{ fontSize: '2.8rem', color: '#0a1628', lineHeight: 1 }}>£1,499</span>
+                  <span className="text-sm pb-1" style={{ color: '#4f6f95' }}>setup</span>
                 </div>
                 <div className="mt-2 flex items-end gap-1">
                   <span className="font-semibold text-xl" style={{ color: '#0a1628' }}>£99</span>
-                  <span className="text-sm" style={{ color: '#7aaada' }}>/month</span>
+                  <span className="text-sm" style={{ color: '#4f6f95' }}>/month</span>
                 </div>
               </div>
               <ul className="space-y-3 mb-8">
@@ -894,13 +852,13 @@ export default function HomePage() {
             className="max-w-3xl mx-auto mt-10 rounded-xl p-7 text-center"
             style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
           >
-            <p className="text-sm font-600 uppercase tracking-widest mb-2" style={{ color: '#4a82cc', letterSpacing: '0.1em' }}>
+            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#35659f', letterSpacing: '0.1em' }}>
               Prefer to pay once?
             </p>
             <h3 className="font-display text-xl font-bold" style={{ color: '#0a1628' }}>
               One-Off Website — £1,999
             </h3>
-            <p className="text-sm mt-2" style={{ color: '#4a82cc' }}>
+            <p className="text-sm mt-2" style={{ color: '#35659f' }}>
               Pay once with no recurring DD Web Solutions fee. Includes an unlimited-page website,
               e-commerce or booking functionality, full SEO campaign and launch support.
             </p>
@@ -911,7 +869,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <p className="text-center mt-8 text-sm" style={{ color: '#7aaada' }}>
+          <p className="text-center mt-8 text-sm" style={{ color: '#4f6f95' }}>
             All prices are shown clearly upfront. VAT may apply. Custom quotes available for larger projects.
           </p>
         </div>
@@ -993,7 +951,7 @@ export default function HomePage() {
             <p
               className="mt-5 mx-auto"
               style={{
-                color: '#4a82cc',
+                color: '#35659f',
                 maxWidth: '620px',
                 fontSize: '1rem',
                 lineHeight: 1.7,
@@ -1024,6 +982,7 @@ export default function HomePage() {
                 style={{ border: '1.5px solid #e0ecf9', background: '#f8fbff' }}
               >
                 <div
+                  aria-hidden="true"
                   className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5"
                   style={{ background: '#e0ecf9' }}
                 >
@@ -1032,7 +991,7 @@ export default function HomePage() {
                 <h3 className="font-semibold text-lg mb-2" style={{ color: '#0a1628' }}>
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#4a82cc' }}>
+                <p className="text-sm leading-relaxed" style={{ color: '#35659f' }}>
                   {item.desc}
                 </p>
               </div>
@@ -1058,7 +1017,7 @@ export default function HomePage() {
           </h2>
           <p
             className="mt-5 leading-relaxed"
-            style={{ color: '#4a82cc', fontSize: '1rem' }}
+            style={{ color: '#35659f', fontSize: '1rem' }}
           >
             A good-looking website is only the starting point. DD Web Solutions
             combines professional website design, mobile performance, technical
@@ -1112,7 +1071,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="font-semibold text-sm" style={{ color: '#0a1628' }}>{t.author}</div>
-                    <div className="text-xs" style={{ color: '#7aaada' }}>{t.business}</div>
+                    <div className="text-xs" style={{ color: '#4f6f95' }}>{t.business}</div>
                   </div>
                 </div>
               </div>
@@ -1135,30 +1094,35 @@ export default function HomePage() {
                 <br />
                 that brings in customers?
               </h2>
-              <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc', fontSize: '1rem' }}>
+              <p className="mt-5 leading-relaxed" style={{ color: '#35659f', fontSize: '1rem' }}>
                 Book your free 30-minute discovery call. No pushy sales pitch — just an honest conversation about your business
                 and whether we're the right fit.
               </p>
 
               <div className="mt-10 space-y-5">
                 {[
-                  { icon: '✉', label: 'Email us', value: 'ddwebsolutions@hotmail.com' },
-                  { icon: '☎', label: 'Call us', value: '07923034016' },
-                  { icon: '⏱', label: 'Response time', value: 'Within 48 hours' },
+                  { icon: '✉', label: 'Email us', value: 'ddwebsolutions@hotmail.com', href: 'mailto:ddwebsolutions@hotmail.com' },
+                  { icon: '☎', label: 'Call us', value: '07923034016', href: 'tel:+447923034016' },
+                  { icon: '⏱', label: 'Response time', value: 'Within 48 hours', href: undefined as string | undefined },
                 ].map(item => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div
+                      aria-hidden="true"
                       className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg"
                       style={{ background: '#e0ecf9', color: '#1e4a8a' }}
                     >
                       {item.icon}
                     </div>
                     <div>
-                      <div className="text-xs uppercase tracking-widest font-semibold" style={{ color: '#7aaada' }}>
+                      <div className="text-xs uppercase tracking-widest font-semibold" style={{ color: '#4f6f95' }}>
                         {item.label}
                       </div>
                       <div className="font-medium text-sm mt-0.5" style={{ color: '#0a1628' }}>
-                        {item.value}
+                        {item.href ? (
+                          <a href={item.href} style={{ color: 'inherit', textDecoration: 'underline' }}>{item.value}</a>
+                        ) : (
+                          item.value
+                        )}
                       </div>
                     </div>
                   </div>
@@ -1177,52 +1141,14 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ background: '#060f20', color: 'rgba(255,255,255,0.5)' }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <div className="flex items-center gap-2.5 mb-3">
-                <div
-                  className="w-9 h-9 rounded flex items-center justify-center text-white font-bold text-sm"
-                  style={{ background: 'linear-gradient(135deg, #2563b0, #1e4a8a)', fontFamily: 'var(--font-display)' }}
-                >
-                  DD
-                </div>
-                <span className="font-semibold text-white text-sm">DD Web Solutions</span>
-              </div>
-              <p className="text-xs leading-relaxed max-w-xs">
-                Professional web design, local SEO and ongoing website support for UK small businesses.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start md:items-end gap-4">
-              <nav className="flex flex-wrap gap-x-6 gap-y-2">
-                {NAV_LINKS.map(link => (
-                  <a key={link.label} href={link.href} className="text-xs hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
-                    {link.label}
-                  </a>
-                ))}
-              </nav>
-              <div className="text-left md:text-right">
-                <p className="text-xs mb-2" style={{ color: 'rgba(255,255,255,0.42)' }}>
-                  Like DD Web Solutions? Add us as a preferred source on Google.
-                </p>
-                <div google-add-preferred-source-btn="true" data-theme="dark"></div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t mt-10 pt-8 flex flex-col sm:flex-row justify-between gap-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-            <p className="text-xs">
-              &copy; {new Date().getFullYear()} DD Web Solutions. All rights reserved.
-            </p>
-            <div className="flex gap-4 text-xs">
-              <a href="#" className="hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Terms</a>
-            </div>
-          </div>
+      <Footer>
+        <div className="text-left md:text-right">
+          <p className="text-xs mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            Like DD Web Solutions? Add us as a preferred source on Google.
+          </p>
+          <div google-add-preferred-source-btn="true" data-theme="dark"></div>
         </div>
-      </footer>
+      </Footer>
     </div>
   )
 }

@@ -23,6 +23,7 @@ export const Route = createRootRoute({
       { name: 'twitter:image', content: 'https://ddwebsolution.com/logo.png' },
     ],
     links: [
+      { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
       {
         rel: 'preconnect',
         href: 'https://fonts.googleapis.com',
@@ -43,10 +44,9 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
         <HeadContent />
-        <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
       </head>
       <body>
         <div className="site-shell">

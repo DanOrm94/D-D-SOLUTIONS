@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export const Route = createFileRoute('/our-work')({
   component: OurWorkPage,
@@ -13,6 +14,16 @@ export const Route = createFileRoute('/our-work')({
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://ddwebsolution.com/our-work' },
       { property: 'og:image', content: 'https://ddwebsolution.com/logo.png' },
+      {
+        'script:ld+json': {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ddwebsolution.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Our Work', item: 'https://ddwebsolution.com/our-work' },
+          ],
+        },
+      },
     ],
     links: [{ rel: 'canonical', href: 'https://ddwebsolution.com/our-work' }],
   }),
@@ -24,7 +35,7 @@ const PROJECTS = [
     category: 'Chimney & Soot Removal Services',
     description: 'A professional website designed to give the business a stronger online presence, clearly present its services, and make it easier for potential customers to get in touch.',
     url: 'https://www.sootdestroyer.co.uk/',
-    logo: '/sootlogo.jpg',
+    headline: 'A clear, professional website for a chimney and soot removal business.',
     tags: ['Website Design', 'Mobile Responsive', 'SEO Ready', 'Enquiry Focused'],
   },
   {
@@ -32,7 +43,7 @@ const PROJECTS = [
     category: 'Cladding & Building Solutions',
     description: 'A professional website created for SK Clad Solutions, giving the business a clear online presence and a straightforward way for potential customers to explore its services and get in touch.',
     url: 'https://skcladsolutions.co.uk/',
-    logo: null,
+    headline: 'A straightforward business website that makes cladding services easy to explore.',
     tags: ['Website Design', 'Mobile Responsive', 'SEO Ready', 'Business Website'],
   },
   {
@@ -40,7 +51,7 @@ const PROJECTS = [
     category: 'Shop Page Design & Development',
     description: 'A dedicated online shop page created for the existing TB Sweeps website, extending the site with a clear, professional shopping experience while working within the existing website.',
     url: 'https://tb-sweeps.com/shop.html',
-    logo: null,
+    headline: 'A shop experience added to an existing website.',
     tags: ['Shop Page', 'Existing Website', 'Web Design', 'E-commerce'],
   },
 ]
@@ -64,7 +75,7 @@ export default function OurWorkPage() {
             <div className="max-w-3xl">
               <span className="section-label"><span style={{ background: '#e8b84b', width: 24, height: 2, display: 'inline-block' }} />Recent work</span>
               <h1 className="font-display mt-5" style={{ fontSize: 'clamp(2.3rem, 5vw, 4rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.08 }}>Websites built for<br /><span style={{ color: '#4a82cc' }}>real businesses.</span></h1>
-              <p className="mt-6 leading-relaxed" style={{ color: '#4a82cc', fontSize: '1.08rem', maxWidth: '680px' }}>Take a look at recent projects built or enhanced by DD Web Solutions. Every project is designed around the business, its customers, and the actions that matter most.</p>
+              <p className="mt-6 leading-relaxed" style={{ color: '#35659f', fontSize: '1.08rem', maxWidth: '680px' }}>Take a look at recent projects built or enhanced by DD Web Solutions. Every project is designed around the business, its customers, and the actions that matter most.</p>
             </div>
           </div>
         </section>
@@ -82,9 +93,9 @@ export default function OurWorkPage() {
                         </div>
 
                         <div className="mt-8">
-                          <div className="font-display text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.05 }}>
+                          <h2 className="font-display text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, lineHeight: 1.05 }}>
                             {project.name}
-                          </div>
+                          </h2>
                         </div>
 
                         <p className="mt-3" style={{ color: 'rgba(255,255,255,0.72)' }}>{project.category}</p>
@@ -93,17 +104,17 @@ export default function OurWorkPage() {
 
                     <div className="p-8 sm:p-12 flex flex-col justify-center">
                       <span className="section-label">The project</span>
-                      <h3 className="font-display mt-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.3rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}>
-                        {project.name === 'TB Sweeps' ? 'A shop experience added to an existing website.' : 'Professional, clear and built to generate enquiries.'}
-                      </h3>
-                      <p className="mt-5 leading-relaxed" style={{ color: '#4a82cc', fontSize: '1rem' }}>{project.description}</p>
+                      <p className="font-display mt-4" style={{ fontSize: 'clamp(1.7rem, 3vw, 2.3rem)', color: '#0a1628', fontWeight: 700, lineHeight: 1.15 }}>
+                        {project.headline}
+                      </p>
+                      <p className="mt-5 leading-relaxed" style={{ color: '#35659f', fontSize: '1rem' }}>{project.description}</p>
                       <div className="flex flex-wrap gap-2.5 mt-7">
                         {project.tags.map((tag) => (
                           <span key={tag} className="rounded-full px-3 py-1.5 text-xs font-semibold" style={{ background: '#e0ecf9', color: '#1e4a8a' }}>{tag}</span>
                         ))}
                       </div>
                       <div className="mt-9 flex flex-wrap gap-4 items-center">
-                        <a href={project.url} target="_blank" rel="noreferrer" className="btn-primary inline-flex items-center gap-2" style={{ fontFamily: 'var(--font-body)', textDecoration: 'none' }}>View Live Website <ArrowUpRight /></a>
+                        <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} live website (opens in a new tab)`} className="btn-primary inline-flex items-center gap-2" style={{ fontFamily: 'var(--font-body)', textDecoration: 'none' }}>View Live Website <ArrowUpRight /></a>
                         <a href="/#contact" className="font-semibold text-sm" style={{ color: '#1e4a8a', textDecoration: 'none' }}>Start your project →</a>
                       </div>
                     </div>
@@ -124,20 +135,7 @@ export default function OurWorkPage() {
         </section>
       </main>
 
-      <footer style={{ background: '#060f20', color: 'rgba(255,255,255,0.5)' }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div><div className="font-semibold text-white text-sm">DD Web Solutions</div><p className="text-xs mt-2">Professional web design for UK small businesses.</p></div>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs">
-              <a href="/" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Home</a>
-              <a href="/our-work" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Our Work</a>
-              <a href="/#pricing" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Pricing</a>
-              <a href="/#contact" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>Contact</a>
-            </div>
-          </div>
-          <div className="border-t mt-8 pt-6 text-xs" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>&copy; {new Date().getFullYear()} DD Web Solutions. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

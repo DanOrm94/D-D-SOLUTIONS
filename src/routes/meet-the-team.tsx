@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export const Route = createFileRoute('/meet-the-team')({
   component: MeetTheTeamPage,
@@ -17,6 +18,22 @@ export const Route = createFileRoute('/meet-the-team')({
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://ddwebsolution.com/meet-the-team' },
       { property: 'og:image', content: 'https://ddwebsolution.com/ddpic.jpg' },
+      {
+        'script:ld+json': {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ddwebsolution.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Meet the Team', item: 'https://ddwebsolution.com/meet-the-team' },
+              ],
+            },
+            { '@type': 'Person', name: 'Dan', jobTitle: 'Software engineer and co-founder', worksFor: { '@id': 'https://ddwebsolution.com/#business' } },
+            { '@type': 'Person', name: 'Danny', jobTitle: 'Customer and business lead, co-founder', worksFor: { '@id': 'https://ddwebsolution.com/#business' } },
+          ],
+        },
+      },
     ],
     links: [{ rel: 'canonical', href: 'https://ddwebsolution.com/meet-the-team' }],
   }),
@@ -81,8 +98,8 @@ export default function MeetTheTeamPage() {
               <article className="rounded-2xl p-8 md:p-10" style={{ background: '#f8fbff', border: '1px solid #e0ecf9', boxShadow: '0 16px 38px rgba(10,22,40,0.08)' }}>
                 <p className="text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: '#2563b0' }}>Customer & Business</p>
                 <h3 className="font-display mt-3" style={{ fontSize: '2.25rem', fontWeight: 700 }}>Danny</h3>
-                <p className="mt-1 text-sm" style={{ color: '#7aaada' }}>10+ years of experience</p>
-                <p className="mt-7 leading-relaxed" style={{ color: '#4a82cc' }}>
+                <p className="mt-1 text-sm" style={{ color: '#4f6f95' }}>10+ years of experience</p>
+                <p className="mt-7 leading-relaxed" style={{ color: '#35659f' }}>
                   Danny brings over 10 years of experience in customer engagement, sales and account management. Bringing the people skills, business understanding and focus on building strong customer relationships.
                 </p>
               </article>
@@ -110,7 +127,7 @@ export default function MeetTheTeamPage() {
                 <article key={title} className="rounded-2xl p-7 md:p-8" style={{ background: '#fff', border: '1px solid #d8e4f2', boxShadow: '0 12px 30px rgba(10,22,40,0.06)' }}>
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-xs font-bold" style={{ background: '#0f2347', color: '#e8b84b' }}>{number}</span>
                   <h3 className="font-display mt-6 text-xl font-bold" style={{ color: '#0a1628' }}>{title}</h3>
-                  <p className="mt-3 leading-relaxed text-sm" style={{ color: '#4a82cc' }}>{description}</p>
+                  <p className="mt-3 leading-relaxed text-sm" style={{ color: '#35659f' }}>{description}</p>
                 </article>
               ))}
             </div>
@@ -130,25 +147,7 @@ export default function MeetTheTeamPage() {
         </section>
       </main>
 
-      <footer style={{ background: '#060f20', color: 'rgba(255,255,255,0.5)' }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <span className="font-semibold text-white text-sm">DD Web Solutions</span>
-              <p className="text-xs leading-relaxed max-w-xs mt-3">Professional web design, local SEO and ongoing website support for UK small businesses.</p>
-            </div>
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              <a href="/" className="text-xs hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>Home</a>
-              <a href="/our-work" className="text-xs hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>Our Work</a>
-              <a href="/meet-the-team" className="text-xs hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>Meet the Team</a>
-              <a href="/#contact" className="text-xs hover:text-white" style={{ color: 'rgba(255,255,255,0.45)' }}>Contact</a>
-            </nav>
-          </div>
-          <div className="border-t mt-10 pt-8" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-            <p className="text-xs">&copy; {new Date().getFullYear()} DD Web Solutions. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
