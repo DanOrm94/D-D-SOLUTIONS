@@ -47,6 +47,14 @@ const PROJECTS = [
     tags: ['Website Design', 'Mobile Responsive', 'SEO Ready', 'Business Website'],
   },
   {
+    name: 'Charlton Civils',
+    category: 'Civil Engineering & Groundworks',
+    description: 'A professional website for an Oldham-based highways, motorway and deep drainage contractor, presenting its services and case studies clearly and making it easy for contractors and developers to request a quote.',
+    headline: 'A credible, service-led website for a highways and civils contractor.',
+    url: 'https://charlton-civils.pages.dev/',
+    tags: ['Website Design', 'Mobile Responsive', 'Case Studies', 'Quote Focused'],
+  },
+  {
     name: 'TB Sweeps',
     category: 'Shop Page Design & Development',
     description: 'A dedicated online shop page created for the existing TB Sweeps website, extending the site with a clear, professional shopping experience while working within the existing website.',
